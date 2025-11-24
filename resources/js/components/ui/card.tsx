@@ -1,68 +1,55 @@
-import * as React from "react"
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
-import { cn } from "@/lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card"
-      className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      )}
-      {...props}
-    />
-  )
+export default function BasicCard({
+    icon,
+    title,
+    subtitle,
+    description,
+    sx,
+    iconColor, iconBg
+}) {
+    return (
+        <Card sx={{ minWidth: 275, ...sx }} className='border border-gray-200'>
+            <CardContent>
+                {/* ICON */}
+                <Box
+                    sx={{
+                        mb: 2,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '12px',
+                        backgroundColor: iconBg || '#e3f2fd',
+                        borderRadius: '12px',
+                        color: iconColor || '#1976d2',
+                    }}
+                >
+                    {icon}
+                </Box>
+
+                {/* TITLE */}
+                {title && (
+                    <Typography variant="h5" component="div">
+                        {title}
+                    </Typography>
+                )}
+
+                {/* SUBTITLE */}
+                {subtitle && (
+                    <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
+                        {subtitle}
+                    </Typography>
+                )}
+
+                {/* DESCRIPTION */}
+                {description && (
+                    <Typography variant="body2">{description}</Typography>
+                )}
+            </CardContent>
+        </Card>
+    );
 }
-
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-header"
-      className={cn("flex flex-col gap-1.5 px-6", className)}
-      {...props}
-    />
-  )
-}
-
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
-      {...props}
-    />
-  )
-}
-
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  )
-}
-
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-content"
-      className={cn("px-6", className)}
-      {...props}
-    />
-  )
-}
-
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn("flex items-center px-6", className)}
-      {...props}
-    />
-  )
-}
-
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }

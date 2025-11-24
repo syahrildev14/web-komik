@@ -182,3 +182,54 @@
 .fade-down {
   animation: fadeDown 0.8s ease-out forwards;
 }
+
+
+/* Animasi Zoom In */
+.my-animation {
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* Marquee Animate */
+/* marquee CSS - paste ke file CSS global (app.css / index.css) */
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  /* default duration di-set via inline style atau CSS variable */
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* keyframes marquee: bergerak dari kanan ke kiri */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* -50% karena kita akan menggandakan konten untuk loop mulus */
+}
+
+/* aksesibilitas: sembunyikan dari screen reader duplicate */
+.marquee-track > .marquee-item[aria-hidden="true"] {
+  display: inline-block;
+}
+

@@ -1,5 +1,7 @@
-import Card from '@/components/Card';
-import HeroSection from '@/components/HeroSectionHome';
+import Card from '@/components/ui/Card';
+import FeatureTextToImage from '@/components/ui/FeatureTextToImage';
+import HeroSection from '@/components/ui/HeroSectionHome';
+import MyGrid from '@/components/utils/Grid';
 import AppLayout from '@/layouts/app-layout';
 
 // icons
@@ -43,36 +45,54 @@ export default function welcome() {
     return (
         <AppLayout>
             <HeroSection />
-            <div className='text-center mt-12 space-y-2'>
-                <h1 className='font-bold text-lg md:text-2xl'>Apa Itu Layar Imajinasi?</h1>
-                <p className='max-w-xl mx-auto text-sm'>
+            <div className="mt-12 space-y-2 text-center">
+                <h1 className="text-lg font-bold md:text-2xl">
+                    Apa Itu Layar Imajinasi?
+                </h1>
+                <p className="mx-auto max-w-xl text-sm">
                     Website edukasi berbasis animasi yang membantu siswa SMK
                     memahami teks cerita fantasi secara visual dan kreatif.
                 </p>
             </div>
 
             {/* WRAPPER CARD */}
-            <div className='mt-10'
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: '20px',
-                    padding: '20px',
-                }}
-            >
+            <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 place-items-center gap-6 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3">
                 {cardData.map((item, index) => (
-                    <Card
+                    <div
                         key={index}
-                        icon={item.icon}
-                        iconColor={item.iconColor}
-                        title={item.title}
-                        subtitle={item.subtitle}
-                        description={item.description}
-                        sx={item.sx}
-                        iconBg={item.iconBg}
-                    />
+                        className="w-full max-w-[360px] transition-transform hover:scale-105"
+                    >
+                        <Card
+                            icon={item.icon}
+                            iconColor={item.iconColor}
+                            title={item.title}
+                            subtitle={item.subtitle}
+                            description={item.description}
+                            sx={item.sx}
+                            iconBg={item.iconBg}
+                        />
+                    </div>
                 ))}
             </div>
+
+            <FeatureTextToImage />
+
+            <div className="mt-10 space-y-4 text-center text-slate-800">
+                <h1 className="text-4xl font-bold">
+                    Temukan Kekuatan Belajarmu di Setiap Fitur
+                </h1>
+                <p className="mx-auto max-w-3xl">
+                    Mau baca materi, lihat animasi, atau coba hal baru di ruang
+                    kreatif, semuanya bisa bantu kamu berkembang dengan cara
+                    yang paling cocok buat kamu. Yuk, gali potensi terbaikmu
+                    mulai dari fitur pertama yang kamu buka!
+                </p>
+            </div>
+
+            {/* Grid Anime */}
+            <MyGrid />
+
+            
         </AppLayout>
     );
 }
