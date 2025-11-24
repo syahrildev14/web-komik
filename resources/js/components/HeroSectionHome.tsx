@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
     return (
         <section
-            className="sticky top-0 flex h-[90vh] w-full items-center justify-center rounded-3xl text-white z-10"
+            className=" flex h-[90vh] w-full items-center justify-center rounded-3xl text-white z-10"
             style={{
                 backgroundImage: `url(${BgHero})`,
                 backgroundSize: 'cover',
