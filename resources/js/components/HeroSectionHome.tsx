@@ -49,7 +49,7 @@ export default function HeroSection() {
                 >
                     <Link
                         href="/"
-                        className="rounded-xl bg-slate-800 px-6 py-3 font-semibold shadow-lg hover:bg-slate-700 z-999 duration-200"
+                        className="rounded-xl bg-white text-slate-800 px-6 py-3 font-semibold shadow-lg hover:bg-gray-200 z-999 duration-200"
                     >
                         Lihat Fitur
                     </Link>
