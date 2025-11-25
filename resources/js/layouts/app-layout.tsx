@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { ReactNode, useEffect, useState } from 'react'; // ✔ perbaikan
-import MyButton from '../components/ui/Button'; // ✔ pastikan sesuai
+import MyButton from '../components/ui/button'; // ✔ pastikan sesuai
 
 interface AppLayoutProps {
     children: ReactNode;

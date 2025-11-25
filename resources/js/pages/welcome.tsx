@@ -1,4 +1,4 @@
-import Card from '@/components/ui/Card';
+import Card from '@/components/ui/card';
 import FeatureTextToImage from '@/components/ui/FeatureTextToImage';
 import HeroSection from '@/components/ui/HeroSectionHome';
 import MyGrid from '@/components/utils/Grid';
@@ -17,6 +17,7 @@ const cardData = [
                 sx={{ color: '#EE6983' }}
             />
         ),
+        iconColor: '#FF6D1F',
         iconBg: '#FBF3D5',
         title: 'Materi Bahasa Indonesia',
         subtitle: 'Kelas 7 - Semester 1',
@@ -25,6 +26,7 @@ const cardData = [
     },
     {
         icon: <AutoAwesomeIcon fontSize="large" sx={{ color: '#2196f3' }} />,
+        iconColor: '#FF6D1F',
         iconBg: '#FBF3D5',
         title: 'Latihan Soal',
         subtitle: 'Untuk melatih pemahaman',
@@ -33,6 +35,7 @@ const cardData = [
     },
     {
         icon: <TroubleshootIcon fontSize="large" sx={{ color: '#E2852E' }} />,
+        iconColor: '#FF6D1F',
         iconBg: '#FBF3D5',
         title: 'Ruang Kreatif',
         subtitle: 'Ekspresikan ide dengan komik',
