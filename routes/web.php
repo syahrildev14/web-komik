@@ -31,4 +31,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
+Route::get('/login', fn() => Inertia::render('auth/Login'))->name('login');
+
+
 require __DIR__ . '/settings.php';

@@ -8,7 +8,7 @@ import img4 from '@/assets/grid/4.jpeg';
 
 export default function ImageGrid() {
     return (
-        <Box sx={{ flexGrow: 1 }} className="mt-12 md:px-6">
+        <Box sx={{ flexGrow: 1 }} className="mt-12 px-2 md:px-6 mb-4">
             <Grid container spacing={2}>
                 {/* Gambar 1 */}
                 <Grid item xs={12} md={8}>

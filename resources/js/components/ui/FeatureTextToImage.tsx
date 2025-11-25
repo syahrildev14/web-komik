@@ -26,7 +26,7 @@ const FEATURES = [
 
 export default function FeatureTextToImage() {
   return (
-    <Box className="w-full py-20 bg-gradient-to-b from-gray-100/0 via-amber-100 to-gray-100/0 md:mt-24">
+    <Box className="w-full py-20  from-gray-100/0 via-white/20 to-gray-100/0 md:mt-24">
       <div className="mx-auto max-w-6xl px-4 space-y-32">
         
         {FEATURES.map((item, index) => (
@@ -38,7 +38,7 @@ export default function FeatureTextToImage() {
             <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
               <div
                 data-aos={item.aos}
-                className="relative w-full overflow-hidden rounded-3xl shadow-2xl"
+                className="relative w-full overflow-hidden rounded-3xl shadow-2xl shadow-white/40"
               >
                 <img
                   src={item.img}
@@ -50,7 +50,7 @@ export default function FeatureTextToImage() {
 
             {/* --- TEXT --- */}
             <div
-              className={`space-y-6 text-slate-800 ${index % 2 === 1 ? "md:order-1" : ""}`}
+              className={`space-y-6 text-white ${index % 2 === 1 ? "md:order-1" : ""}`}
               data-aos={item.aos}
             >
               <p className="md:text-4xl font-semibold">{item.title}</p>
@@ -59,7 +59,7 @@ export default function FeatureTextToImage() {
 
               <Button
                 variant="outlined"
-                className="!border-amber-600 !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg 
+                className="!border-white !text-white !rounded-xl !px-6 !py-3 !text-lg 
                   hover:!bg-white hover:!text-amber-600 duration-300"
               >
                 ✦ Coba Sekarang

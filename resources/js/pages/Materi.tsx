@@ -12,9 +12,9 @@ const Materi = () => {
     return (
         <AppLayout>
             {/* Hero Section */}
-            <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20 md:px-12 lg:px-20">
+            <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20 ">
                 {/* Text */}
-                <div className="max-w-xl space-y-5 text-center text-amber-600 md:text-left">
+                <div className="max-w-xl space-y-5 text-center text-white md:text-left">
                     <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
                         Apa Itu Cerita Fantasi?
                     </h1>
@@ -37,11 +37,11 @@ const Materi = () => {
                 </div>
 
                 {/* Image */}
-                <div className="flex w-full justify-center">
+                <div>
                     <img
                         src={imgHero}
                         alt="Cerita Fantasi"
-                        className="w-52 object-contain sm:w-64 md:w-96 lg:w-[28rem]"
+                        className="w-[20rem] object-contain sm:w-64 md:w-96 lg:w-[42rem]"
                     />
                 </div>
             </div>
@@ -50,12 +50,12 @@ const Materi = () => {
             <UnsurKebahasaanFantasi />
 
             {/* Contoh Teks Cerita Fantasi */}
-            <section className="px-4 py-10">
+            <section className="px-4 py-10 text-white ">
                 <h1 className="text-center text-3xl font-bold md:text-5xl">
                     Contoh Teks Cerita Fantasi
                 </h1>
 
-                <div className="mx-auto mt-14 flex max-w-screen-lg flex-col items-center justify-center gap-10 md:flex-row">
+                <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 md:flex-row mt-12 lg:mt-20">
                     {/* Gambar */}
                     <div className="flex w-full justify-center md:w-1/2 md:justify-start">
                         <img
@@ -66,8 +66,8 @@ const Materi = () => {
                     </div>
 
                     {/* Teks */}
-                    <div className="w-full space-y-4 text-center text-slate-800 md:w-1/2 md:text-left">
-                        <h1 className="text-xl font-semibold text-slate-800 sm:text-2xl">
+                    <div className="w-full space-y-4 text-center text-white md:w-1/2 md:text-left">
+                        <h1 className="text-xl font-semibold sm:text-2xl">
                             Judul: “Penjaga Cahaya di Bukit Awan”
                         </h1>
                         <p className="text-justify text-base leading-relaxed">
@@ -95,11 +95,11 @@ const Materi = () => {
             </section>
 
             {/* Video Youtube */}
-            <section className="w-full px-6 py-16">
+            <section className="w-full px-6 py-16 text-white">
                 <h1 className="mb-4 text-center text-3xl font-bold md:text-5xl">
                     Pemutaran Video Cerita Fantasi
                 </h1>
-                <p className="mx-auto mb-10 max-w-2xl text-center text-base text-gray-600 md:text-lg">
+                <p className="mx-auto mb-10 max-w-2xl text-center text-base md:text-lg">
                     Tonton video pembelajaran berikut untuk memahami cerita
                     fantasi secara lebih menarik.
                 </p>

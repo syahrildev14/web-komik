@@ -48,7 +48,7 @@ export default function welcome() {
     return (
         <AppLayout>
             <HeroSection />
-            <div className="mt-12 space-y-2 text-center">
+            <div className="mt-12 space-y-2 text-center text-white">
                 <h1 className="text-lg font-bold md:text-2xl">
                     Apa Itu Layar Imajinasi?
                 </h1>
@@ -80,7 +80,7 @@ export default function welcome() {
 
             <FeatureTextToImage />
 
-            <div className="mt-10 space-y-4 text-center text-slate-800">
+            <div className="mt-10 space-y-4 text-center text-white">
                 <h1 className="text-4xl font-bold">
                     Temukan Kekuatan Belajarmu di Setiap Fitur
                 </h1>

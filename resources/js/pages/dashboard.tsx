@@ -1,36 +1,30 @@
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import AppLayout from '@/layouts/app-layout';
-import { dashboard } from '@/routes';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard().url,
-    },
-];
+import AdminLayout from "@/layouts/admin-layout";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
-export default function Dashboard() {
+interface NilaiSiswaProps {
+    nilai: {
+        id: number;
+        nama_siswa: string;
+        kelas: string;
+        mata_pelajaran: string;
+        nilai: number;
+    }[];
+}
+
+export default function NilaiSiswa({ nilai }: NilaiSiswaProps) {
+    const columns: GridColDef[] = [
+        { field: "nama_siswa", headerName: "Nama Siswa", flex: 1 },
+        { field: "kelas", headerName: "Kelas", width: 100 },
+        { field: "mata_pelajaran", headerName: "Mapel", flex: 1 },
+        { field: "nilai", headerName: "Nilai", width: 120 },
+    ];
+
     return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                </div>
-                <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                </div>
+        <AdminLayout title="Monitoring Data Nilai">
+            <div style={{ height: 450, width: "100%" }}>
+                <DataGrid rows={nilai} columns={columns} pageSize={5} />
             </div>
-        </AppLayout>
+        </AdminLayout>
     );
 }

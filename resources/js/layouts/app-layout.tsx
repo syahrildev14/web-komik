@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { ReactNode, useEffect, useState } from 'react'; // ✔ perbaikan
-import MyButton from '../components/ui/button'; // ✔ pastikan sesuai
+import MyButton from '../components/ui/Button'; // ✔ pastikan sesuai
 
 interface AppLayoutProps {
     children: ReactNode;
@@ -53,6 +53,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
                         <MyButton
                             label="Mulai"
+                            href="/ruang-kreatif"
                             className="rounded-xl !bg-white !px-6 !py-2 !text-amber-600 shadow-md hover:!bg-gray-200"
                         />
                     </nav>
@@ -82,6 +83,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
                         <MyButton
                             label="Mulai"
+                            href="/ruang-kreatif"
                             className="w-full rounded-lg !bg-white !py-2 text-center !text-amber-600 hover:!bg-gray-200"
                             onClick={() => setMenuOpen(false)}
                         />
@@ -90,7 +92,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
             </header>
 
             {/* Content */}
-            <main className="mx-auto flex-1 p-4">{children}</main>
+            <main className="flex-1">{children}</main>
 
             {/* Footer */}
             <footer className="mt-auto bg-gray-800 p-4 text-center text-gray-200 shadow-inner">

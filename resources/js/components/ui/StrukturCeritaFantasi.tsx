@@ -1,3 +1,5 @@
+import Bg3 from '@/assets/images/bg-3.svg';
+
 export default function StrukturCeritaFantasi() {
     const items = [
         {
@@ -27,15 +29,16 @@ export default function StrukturCeritaFantasi() {
     ];
 
     return (
-        <div className="w-full min-h-screen bg-[#25024C] flex flex-col items-center py-16 px-4">
+        <div style={{ backgroundImage: `url(${Bg3})` }} className="bg-no-repeat bg-cover bg-center w-full min-h-screen bg-[#25024C] flex flex-col items-center py-16 px-4">
+         
             {/* Header Ribbon */}
             <div className="relative mb-12">
-                <div className="bg-[#3B056D] px-10 py-4 rounded-lg text-white text-2xl md:text-3xl font-bold shadow-lg">
+                <div className="bg-[#3B056D] px-10 py-4 rounded-lg text-white text-center text-2xl md:text-3xl font-bold shadow-lg">
                     Struktur Teks Cerita Fantasi
                 </div>
                 {/* ekstra pita kiri-kanan */}
-                <div className="absolute -left-6 top-1/2 h-4 w-6 bg-[#3B056D] -translate-y-1/2 rounded-l-sm"></div>
-                <div className="absolute -right-6 top-1/2 h-4 w-6 bg-[#3B056D] -translate-y-1/2 rounded-r-sm"></div>
+                <div className="hidden md:block absolute -left-6 top-1/2 h-4 w-6 bg-[#3B056D] -translate-y-1/2 rounded-l-sm"></div>
+                <div className="hidden md:block absolute -right-6 top-1/2 h-4 w-6 bg-[#3B056D] -translate-y-1/2 rounded-r-sm"></div>
             </div>
 
             <div className="space-y-8 w-full max-w-4xl">

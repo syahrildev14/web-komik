@@ -10,7 +10,7 @@ export default function HeroSection() {
         <section
   className="
     relative flex w-full min-h-[70vh] md:min-h-[90vh] 
-    items-center justify-center rounded-3xl text-white
+    items-center justify-center text-white
     bg-cover bg-center
   "
   style={{
@@ -22,7 +22,7 @@ export default function HeroSection() {
     src={Labu}
     alt="labu"
     className="
-      absolute top-0 right-2/3 -translate-x-[60%] w-16
+      absolute float-x top-0 right-2/3 -translate-x-[60%] w-16
        sm:left-1/4 sm:w-20
        md:left-72 md:w-28
       z-20
@@ -34,7 +34,7 @@ export default function HeroSection() {
     src={Laba2}
     alt="laba2"
     className="
-      absolute top-0 left-2/3 translate-x-[60%] w-16
+      absolute float-x top-0 left-2/3 translate-x-[60%] w-16
        sm:right-1/4 sm:left-auto sm:w-20 
        md:right-72 md:w-28 md:translate-x-0
       z-20
@@ -62,13 +62,12 @@ export default function HeroSection() {
       transition={{ duration: 0.7, delay: 0.35 }}
       className="mt-6 flex justify-center"
     >
-    <Button
-                variant="outlined"
-                className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg 
-                  hover:!bg-white/80 hover:!text-amber-600 duration-300"
-              >
-                Mulai Sekarang
-              </Button>
+      <Button
+          variant="outlined"
+          className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg 
+        hover:!bg-white/80 hover:!text-amber-600 duration-300">
+          Mulai Sekarang
+      </Button>
     </motion.div>
   </div>
 
