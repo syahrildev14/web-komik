@@ -43,6 +43,8 @@ Route::get('/admin/nilai-evaluasi-latihan', function () {
 Route::prefix('api')->group(function () {
     Route::post('/simpan-kuis', [QuizController::class, 'store'])
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
+    Route::get('/simpan-kuis', [QuizController::class, 'index'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
 });
 
 

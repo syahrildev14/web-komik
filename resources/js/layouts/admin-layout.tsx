@@ -3,20 +3,16 @@ import { ReactNode, useState } from 'react';
 
 // Material UI Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import LogoutIcon from '@mui/icons-material/Logout';
-import MenuIcon from '@mui/icons-material/Menu';
-import SchoolIcon from '@mui/icons-material/School';
 import DataExplorationRoundedIcon from '@mui/icons-material/DataExplorationRounded';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SchoolIcon from '@mui/icons-material/School';
 
 interface AdminLayoutProps {
     title?: string;
     children: ReactNode;
 }
 
-export default function AdminLayout({
-    title = 'Dashboard Admin',
-    children,
-}: AdminLayoutProps) {
+export default function AdminLayout({ children }: AdminLayoutProps) {
     const [open, setOpen] = useState(false);
     const { url } = usePage(); // url saat ini
 
@@ -86,15 +82,6 @@ export default function AdminLayout({
 
             {/* MAIN CONTENT */}
             <div className="flex min-h-screen flex-1 flex-col">
-                {/* TOPBAR */}
-                <header className="flex h-16 items-center bg-white px-4 shadow lg:ml-64">
-                    <button onClick={() => setOpen(true)} className="lg:hidden">
-                        <MenuIcon className="h-7 w-7 text-gray-700" />
-                    </button>
-
-                    <h2 className="ml-4 text-lg font-semibold">{title}</h2>
-                </header>
-
                 {/* CONTENT */}
                 <main className="flex-1 p-6 lg:ml-64">{children}</main>
             </div>

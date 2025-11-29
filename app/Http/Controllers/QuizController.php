@@ -18,7 +18,7 @@ class QuizController extends Controller
             'kelas'          => 'nullable|string|max:255',
 
             // DATA KUIS
-            'answers'        => 'required|array',  
+            'answers'        => 'required|array',
             'correctCount'   => 'required|integer',
             'totalQuestions' => 'required|integer',
             'score'          => 'required|numeric',
@@ -61,5 +61,13 @@ class QuizController extends Controller
                 'answers' => $validated['answers']
             ]
         ], 201);
+    }
+
+    public function index()
+    {
+        // Ambil semua quiz results beserta jawaban (optional)
+        $results = QuizResult::with('answers')->get();
+
+        return response()->json($results);
     }
 }

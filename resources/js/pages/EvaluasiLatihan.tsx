@@ -7,6 +7,7 @@ import AppLayout from '@/layouts/app-layout';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import axios from 'axios';
 import React from 'react';
+import Swal from 'sweetalert2';
 
 interface SubmitPayload {
     nama?: string;
@@ -154,7 +155,7 @@ const EvaluasiLatihan: React.FC = () => {
 
         console.log('Jawaban siswa:', answers);
 
-        const correctAnswers: string[] = ['B', 'B', 'B', 'B', 'B'];
+        const correctAnswers: string[] = ['B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B'];
         const totalQuestions = correctAnswers.length;
 
         // Hitung jumlah jawaban benar
@@ -181,10 +182,23 @@ const EvaluasiLatihan: React.FC = () => {
                 payload,
             );
             console.log('Response dari server:', res.data);
-            alert(`🎉 Kuis berhasil dikirim! Skor kamu: ${score}`);
+
+            // SweetAlert2
+            Swal.fire({
+                title: '🎉 Kuis Berhasil!',
+                text: `Skor kamu: ${score}`,
+                icon: 'success',
+                confirmButtonText: 'OK',
+            });
         } catch (error) {
             console.error('Gagal mengirim data:', error);
-            alert('⚠ Terjadi kesalahan saat mengirim jawaban!');
+
+            Swal.fire({
+                title: '⚠ Terjadi Kesalahan',
+                text: 'Gagal mengirim jawaban!',
+                icon: 'error',
+                confirmButtonText: 'Coba Lagi',
+            });
         }
     };
 

@@ -16,6 +16,12 @@ class QuizResult extends Model
         'score',
     ];
 
+    // Relasi ke QuizAnswer
+    public function answers()
+    {
+        return $this->hasMany(QuizAnswer::class);
+    }
+
     // Supaya kolom answers otomatis di-cast ke array
     protected $casts = [
         'answers' => 'array',
