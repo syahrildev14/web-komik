@@ -1,93 +1,103 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
+import { ReactNode, useState } from 'react';
+
+// Material UI Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import SchoolIcon from '@mui/icons-material/School';
-import {
-    AppBar,
-    Box,
-    Drawer,
-    IconButton,
-    List,
-    ListItem,
-    ListItemText,
-    Toolbar,
-    Typography,
-} from '@mui/material';
-import { ReactNode, useState } from 'react';
+import DataExplorationRoundedIcon from '@mui/icons-material/DataExplorationRounded';
 
 interface AdminLayoutProps {
     title?: string;
     children: ReactNode;
 }
 
-const drawerWidth = 240;
-
 export default function AdminLayout({
     title = 'Dashboard Admin',
     children,
 }: AdminLayoutProps) {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+    const [open, setOpen] = useState(false);
+    const { url } = usePage(); // url saat ini
 
-    const drawer = (
-        <Box sx={{ width: drawerWidth }}>
-            <List>
-                <ListItem button component={Link} href="/dashboard">
-                    <DashboardIcon sx={{ marginRight: 1 }} />
-                    <ListItemText primary="Dashboard" />
-                </ListItem>
-                <ListItem button component={Link} href="/admin/nilai-siswa">
-                    <SchoolIcon sx={{ marginRight: 1 }} />
-                    <ListItemText primary="Monitoring Nilai" />
-                </ListItem>
-                <ListItem button component={Link} method="post" href="/logout">
-                    <LogoutIcon sx={{ marginRight: 1 }} />
-                    <ListItemText primary="Logout" />
-                </ListItem>
-            </List>
-        </Box>
-    );
+    const isActive = (path: string) => url.startsWith(path);
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            {/* TOP BAR */}
-            <AppBar position="fixed" sx={{ zIndex: 1300 }}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        {title}
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-
+        <div className="flex min-h-screen bg-gray-100">
             {/* SIDEBAR */}
-            <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{ keepMounted: true }}
-                sx={{
-                    '& .MuiDrawer-paper': { width: drawerWidth },
-                }}
+            <aside
+                className={`fixed inset-y-0 left-0 z-40 w-64 transform bg-[#27024F] shadow-lg ${open ? 'translate-x-0' : '-translate-x-64'} transition-transform duration-300 lg:translate-x-0`}
             >
-                {drawer}
-            </Drawer>
+                {/* Logo / Title */}
+                <div className="border-b p-6">
+                    <h1 className="text-center text-lg font-bold text-gray-200">
+                        Komikuna
+                    </h1>
+                </div>
 
-            {/* KONTEN */}
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, padding: 3, marginTop: 8 }}
-            >
-                {children}
-            </Box>
-        </Box>
+                {/* Nav Section */}
+                <nav className="space-y-2 p-4">
+                    {/* Dashboard */}
+                    <Link
+                        href="/admin/dashboard"
+                        className={`flex items-center gap-3 rounded-lg p-3 ${isActive('/admin/dashboard') ? 'bg-gray-100/50 text-white' : 'text-gray-300 hover:bg-gray-100/10'}`}
+                    >
+                        <DashboardIcon className="text-inherit" />
+                        <span>Dashboard</span>
+                    </Link>
+
+                    {/* Nilai Evaluasi & Latihan */}
+                    <Link
+                        href="/admin/nilai-evaluasi-latihan"
+                        className={`flex items-center gap-3 rounded-lg p-3 ${isActive('/admin/nilai-evaluasi-latihan') ? 'bg-gray-100/50 text-white' : 'text-gray-300 hover:bg-gray-100/10'}`}
+                    >
+                        <SchoolIcon className="text-inherit" />
+                        <span>Nilai Evaluasi & Latihan</span>
+                    </Link>
+
+                    {/* Nilai Ruang Kreatif */}
+                    <Link
+                        href="/admin/nilai-ruang-kreatif"
+                        className={`flex items-center gap-3 rounded-lg p-3 ${isActive('/admin/nilai-ruang-kreatif') ? 'bg-gray-100/50 text-white' : 'text-gray-300 hover:bg-gray-100/10'}`}
+                    >
+                        <DataExplorationRoundedIcon className="text-inherit" />
+                        <span>Nilai Ruang Kreatif</span>
+                    </Link>
+
+                    {/* Logout */}
+                    <Link
+                        href="/logout"
+                        method="post"
+                        className="flex items-center gap-3 rounded-lg p-3 text-gray-300 hover:bg-gray-100/10"
+                    >
+                        <LogoutIcon className="text-inherit" />
+                        <span>Logout</span>
+                    </Link>
+                </nav>
+            </aside>
+
+            {/* MOBILE OVERLAY */}
+            {open && (
+                <div
+                    className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+                    onClick={() => setOpen(false)}
+                />
+            )}
+
+            {/* MAIN CONTENT */}
+            <div className="flex min-h-screen flex-1 flex-col">
+                {/* TOPBAR */}
+                <header className="flex h-16 items-center bg-white px-4 shadow lg:ml-64">
+                    <button onClick={() => setOpen(true)} className="lg:hidden">
+                        <MenuIcon className="h-7 w-7 text-gray-700" />
+                    </button>
+
+                    <h2 className="ml-4 text-lg font-semibold">{title}</h2>
+                </header>
+
+                {/* CONTENT */}
+                <main className="flex-1 p-6 lg:ml-64">{children}</main>
+            </div>
+        </div>
     );
 }

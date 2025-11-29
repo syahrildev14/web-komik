@@ -25,13 +25,17 @@ Route::get('/kamus-fantasi', function () {
 })->name('kamus-fantasi');
 
 // Route Admin
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
+Route::get('/admin/dashboard', function () {
+    return Inertia::render('admin/Dashboard');
+})->name('dashboard');
 
-Route::get('/login', fn() => Inertia::render('auth/Login'))->name('login');
+Route::get('/admin/nilai-ruang-kreatif', function () {
+    return Inertia::render('admin/Nilai_Ruang_Kreatif');
+})->name('nilai-ruang-kreatif');
+
+Route::get('/admin/nilai-evaluasi-latihan', function () {
+    return Inertia::render('admin/Nilai_Evaluasi_Latihan');
+})->name('nilai-evaluasi-latihan');
 
 
 require __DIR__ . '/settings.php';
