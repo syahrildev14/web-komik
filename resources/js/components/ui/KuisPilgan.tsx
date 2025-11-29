@@ -1,30 +1,80 @@
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
-import { useState } from "react";
 
-const KuisPilihanGanda = ({ questions, onSubmit }) => {
-  const [answers, setAnswers] = useState({});
+// 🟡 Definisikan tipe option
+interface Option {
+  value: string;
+  label: string;
+}
+
+// 🟡 Definisikan tipe untuk setiap soal
+export interface Question {
+  question: string;
+  options: Option[];
+  correctAnswer: string;
+}
+
+// 🟡 Tipe data yang dikirim ke parent (EvaluasiLatihan)
+export interface AnswerPayload {
+  nama: string;
+  absen: string;
+  kelas: string;
+  answers: Record<number, string>;
+  correctCount: number;
+  totalQuestions: number;
+  score: number;
+}
+
+// 🟡 Props dari komponen
+interface KuisPilihanGandaProps {
+  questions: Question[];
+  onSubmit: (data: AnswerPayload) => void;
+}
+
+const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
+  questions,
+  onSubmit,
+}) => {
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [identitas, setIdentitas] = useState({
     nama: "",
     absen: "",
     kelas: "",
   });
 
-  const handleIdentitasChange = (e) => {
+  // 📌 Handle input identitas
+  const handleIdentitasChange = (
+    e: ChangeEvent<HTMLInputElement>
+  ): void => {
     setIdentitas({
       ...identitas,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleChange = (soalIndex, value) => {
+  // 📌 Handle perubahan jawaban
+  const handleChange = (soalIndex: number, value: string): void => {
     setAnswers((prev) => ({ ...prev, [soalIndex]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // 📌 Handle Submit kuis
+  const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
+
+    const correctCount = questions.filter(
+      (q, i) => answers[i] === q.correctAnswer
+    ).length;
+    const totalQuestions = questions.length;
+    const score = (correctCount / totalQuestions) * 100;
+
     onSubmit({
-      identitas,
-      answers,
+      nama: identitas.nama,
+      absen: identitas.absen,
+      kelas: identitas.kelas,
+      answers: Object.values(answers),
+      correctCount,
+      totalQuestions,
+      score,
     });
   };
 
@@ -34,7 +84,7 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
       className="w-full max-w-3xl mx-auto space-y-6 text-purple-900"
     >
       {/* ============================
-          FORM IDENTITAS SISWA
+            FORM IDENTITAS SISWA
       ============================= */}
       <div className="bg-white p-6 rounded-2xl shadow-md space-y-4">
         <h2 className="font-bold text-xl mb-2">Identitas Siswa</h2>
@@ -45,15 +95,17 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
           value={identitas.nama}
           onChange={handleIdentitasChange}
           placeholder="Nama Lengkap"
+          required
           className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
         />
 
         <input
-          type="text"
+          type="number"
           name="absen"
           value={identitas.absen}
           onChange={handleIdentitasChange}
           placeholder="Nomor Absen"
+          required
           className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
         />
 
@@ -63,12 +115,13 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
           value={identitas.kelas}
           onChange={handleIdentitasChange}
           placeholder="Kelas"
+          required
           className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
         />
       </div>
 
       {/* ============================
-          DAFTAR SOAL
+            DAFTAR SOAL
       ============================= */}
       {questions.map((q, index) => (
         <div
@@ -76,7 +129,6 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
           className="bg-white p-6 rounded-2xl shadow-md space-y-4"
         >
           <h3 className="font-bold text-lg">Soal {index + 1}</h3>
-
           <p className="text-sm leading-relaxed">{q.question}</p>
 
           <div className="space-y-2">
@@ -91,6 +143,7 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
                   value={opt.value}
                   checked={answers[index] === opt.value}
                   onChange={() => handleChange(index, opt.value)}
+                  required
                   className="accent-purple-700 scale-110"
                 />
                 {opt.label}
@@ -101,7 +154,7 @@ const KuisPilihanGanda = ({ questions, onSubmit }) => {
       ))}
 
       {/* ============================
-          TOMBOL SUBMIT
+            TOMBOL SUBMIT
       ============================= */}
       <div className="flex justify-center py-4">
         <Button

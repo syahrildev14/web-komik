@@ -1,8 +1,24 @@
-import KuisPilihanGanda from '@/components/ui/KuisPilgan';
+import KuisPilihanGanda, {
+    type AnswerPayload,
+    type Question,
+} from '@/components/ui/KuisPilgan';
+
 import AppLayout from '@/layouts/app-layout';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import axios from 'axios';
+import React from 'react';
 
-const questions = [
+interface SubmitPayload {
+    nama?: string;
+    absen?: string;
+    kelas?: string;
+    answers: Record<number, string>;
+    correctCount: number;
+    totalQuestions: number;
+    score: number;
+}
+
+const questions: Question[] = [
     {
         question: 'Bagian orientasi dalam cerita fantasi berisi...',
         options: [
@@ -11,6 +27,60 @@ const questions = [
             { value: 'C', label: 'C. Penyelesaian akhir cerita' },
             { value: 'D', label: 'D. Pesan moral dari cerita' },
         ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Bagian komplikasi dalam cerita fantasi berisi...',
+        options: [
+            { value: 'A', label: 'A. Tokoh, latar, dan suasana diperkenalkan' },
+            {
+                value: 'B',
+                label: 'B. Konflik utama mulai muncul dan berkembang',
+            },
+            { value: 'C', label: 'C. Penyelesaian masalah utama' },
+            { value: 'D', label: 'D. Penutup cerita yang menyentuh' },
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question:
+            'Resolusi dalam struktur cerita fantasi adalah bagian untuk...',
+        options: [
+            { value: 'A', label: 'A. Menyebutkan masalah awal tokoh' },
+            { value: 'B', label: 'B. Mengembangkan konflik tokoh utama' },
+            {
+                value: 'C',
+                label: 'C. Menyelesaikan konflik dan memberi akhir cerita',
+            },
+            { value: 'D', label: 'D. Memperkenalkan tokoh pendukung' },
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Tokoh dalam cerita fantasi biasanya memiliki karakter...',
+        options: [
+            { value: 'A', label: 'A. Selalu realistis dan sesuai kenyataan' },
+            {
+                value: 'B',
+                label: 'B. Bisa memiliki kekuatan atau kemampuan di luar nalar',
+            },
+            { value: 'C', label: 'C. Hanya tokoh manusia nyata' },
+            { value: 'D', label: 'D. Tidak memiliki perkembangan karakter' },
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Ciri utama cerita fantasi adalah...',
+        options: [
+            { value: 'A', label: 'A. Semuanya harus berdasarkan fakta nyata' },
+            {
+                value: 'B',
+                label: 'B. Memiliki unsur magis atau dunia imajinatif',
+            },
+            { value: 'C', label: 'C. Berisi data dan angka statistik' },
+            { value: 'D', label: 'D. Tidak menggunakan tokoh protagonis' },
+        ],
+        correctAnswer: 'B',
     },
     {
         question: 'Bagian orientasi dalam cerita fantasi berisi...',
@@ -20,29 +90,108 @@ const questions = [
             { value: 'C', label: 'C. Penyelesaian akhir cerita' },
             { value: 'D', label: 'D. Pesan moral dari cerita' },
         ],
+        correctAnswer: 'B',
     },
     {
-        question: 'Bagian orientasi dalam cerita fantasi berisi...',
+        question: 'Bagian komplikasi dalam cerita fantasi berisi...',
         options: [
-            { value: 'A', label: 'A. Puncak konflik dan masalah utama' },
-            { value: 'B', label: 'B. Perkenalan tokoh, waktu, dan tempat' },
-            { value: 'C', label: 'C. Penyelesaian akhir cerita' },
-            { value: 'D', label: 'D. Pesan moral dari cerita' },
+            { value: 'A', label: 'A. Tokoh, latar, dan suasana diperkenalkan' },
+            {
+                value: 'B',
+                label: 'B. Konflik utama mulai muncul dan berkembang',
+            },
+            { value: 'C', label: 'C. Penyelesaian masalah utama' },
+            { value: 'D', label: 'D. Penutup cerita yang menyentuh' },
         ],
+        correctAnswer: 'B',
     },
-    // Tambahkan soal lain...
+    {
+        question:
+            'Resolusi dalam struktur cerita fantasi adalah bagian untuk...',
+        options: [
+            { value: 'A', label: 'A. Menyebutkan masalah awal tokoh' },
+            { value: 'B', label: 'B. Mengembangkan konflik tokoh utama' },
+            {
+                value: 'C',
+                label: 'C. Menyelesaikan konflik dan memberi akhir cerita',
+            },
+            { value: 'D', label: 'D. Memperkenalkan tokoh pendukung' },
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Tokoh dalam cerita fantasi biasanya memiliki karakter...',
+        options: [
+            { value: 'A', label: 'A. Selalu realistis dan sesuai kenyataan' },
+            {
+                value: 'B',
+                label: 'B. Bisa memiliki kekuatan atau kemampuan di luar nalar',
+            },
+            { value: 'C', label: 'C. Hanya tokoh manusia nyata' },
+            { value: 'D', label: 'D. Tidak memiliki perkembangan karakter' },
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Ciri utama cerita fantasi adalah...',
+        options: [
+            { value: 'A', label: 'A. Semuanya harus berdasarkan fakta nyata' },
+            {
+                value: 'B',
+                label: 'B. Memiliki unsur magis atau dunia imajinatif',
+            },
+            { value: 'C', label: 'C. Berisi data dan angka statistik' },
+            { value: 'D', label: 'D. Tidak menggunakan tokoh protagonis' },
+        ],
+        correctAnswer: 'B',
+    },
 ];
 
-const EvaluasiLatihan = () => {
-    const handleSubmit = (answers) => {
+const EvaluasiLatihan: React.FC = () => {
+    // ⚠ utils submit
+    const handleSubmit = async (data: AnswerPayload): Promise<void> => {
+        const { answers, nama, absen, kelas } = data;
+
         console.log('Jawaban siswa:', answers);
+
+        const correctAnswers: string[] = ['B', 'B', 'B', 'B', 'B'];
+        const totalQuestions = correctAnswers.length;
+
+        // Hitung jumlah jawaban benar
+        const correctCount = Object.values(answers).filter(
+            (ans, index) => ans === correctAnswers[index],
+        ).length;
+
+        const score = (correctCount / totalQuestions) * 100;
+
+        // Payload akhir (bisa langsung pakai data yang diinput)
+        const payload: SubmitPayload = {
+            nama,
+            absen,
+            kelas,
+            answers,
+            correctCount,
+            totalQuestions,
+            score,
+        };
+
+        try {
+            const res = await axios.post(
+                'http://localhost:8000/api/simpan-kuis',
+                payload,
+            );
+            console.log('Response dari server:', res.data);
+            alert(`🎉 Kuis berhasil dikirim! Skor kamu: ${score}`);
+        } catch (error) {
+            console.error('Gagal mengirim data:', error);
+            alert('⚠ Terjadi kesalahan saat mengirim jawaban!');
+        }
     };
 
     return (
         <AppLayout>
             {/* Hero Section */}
             <section className="relative w-full overflow-hidden bg-gradient-to-b from-purple-800 to-purple-900 px-6 py-16 text-center text-white">
-                {/* Garis dekorasi background */}
                 <div className="absolute inset-0 bg-[url('/pattern-lines.svg')] bg-repeat opacity-10"></div>
 
                 <div className="relative z-10 mx-auto max-w-3xl space-y-4">
@@ -60,14 +209,15 @@ const EvaluasiLatihan = () => {
                     </p>
 
                     <div className="mt-6 flex justify-center">
-                        <div className="rounded-full bg-white/20 px-6 py-3 text-sm font-medium shadow backdrop-blur-md md:text-base gap-3 flex items-center">
-                            Jawablah semua soal dengan teliti <TipsAndUpdatesIcon/>
+                        <div className="flex items-center gap-3 rounded-full bg-white/20 px-6 py-3 text-sm font-medium shadow backdrop-blur-md md:text-base">
+                            Jawablah semua soal dengan teliti{' '}
+                            <TipsAndUpdatesIcon />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Kuis Pilihan Ganda */}
+            {/* Kuis */}
             <div className="p-6">
                 <KuisPilihanGanda
                     questions={questions}

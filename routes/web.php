@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\QuizController;
 
 
 // Route User
@@ -36,6 +37,13 @@ Route::get('/admin/nilai-ruang-kreatif', function () {
 Route::get('/admin/nilai-evaluasi-latihan', function () {
     return Inertia::render('admin/Nilai_Evaluasi_Latihan');
 })->name('nilai-evaluasi-latihan');
+
+
+// Route API
+Route::prefix('api')->group(function () {
+    Route::post('/simpan-kuis', [QuizController::class, 'store'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
+});
 
 
 require __DIR__ . '/settings.php';
