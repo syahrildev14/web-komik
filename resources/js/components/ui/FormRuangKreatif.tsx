@@ -1,12 +1,25 @@
 import { useState } from "react";
+import axios from "axios";
 import Img1 from "@/assets/grid/1.jpeg";
 import Img2 from "@/assets/grid/2.jpeg";
 import Img3 from "@/assets/grid/3.jpeg";
 import Img4 from "@/assets/grid/4.jpeg";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2";
+
+interface CeritaFantasiFormData {
+  nama: string;
+  absen: string;
+  kelas: string;
+  judul: string;
+  cerita1: string;
+  cerita2: string;
+  cerita3: string;
+  cerita4: string;
+}
 
 interface FormCeritaFantasiProps {
-  onSubmit?: (data: any) => void;
+  onSubmit?: (data: CeritaFantasiFormData) => void;
 }
 
 export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) {
@@ -21,25 +34,75 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
     cerita4: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validasi sederhana
-    if (!form.nama.trim() || !form.absen.trim() || !form.kelas.trim() || !form.judul.trim()) {
-      console.warn("⚠ Lengkapi data identitas sebelum mengirim!");
+    if (
+      !form.nama.trim() ||
+      !form.absen.trim() ||
+      !form.kelas.trim() ||
+      !form.judul.trim()
+    ) {
+      Swal.fire({
+        icon: "warning",
+        title: "Lengkapi Identitas!",
+        text: "Isi nama, absen, kelas, dan judul terlebih dahulu ya 😊",
+      });
       return;
     }
 
-    // Log ke console
-    console.log("📦 Data terkirim:", form);
+    setLoading(true);
 
-    // Kirim via fungsi parent jika ada
-    onSubmit && onSubmit(form);
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/cerita",
+        form,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      console.log("📦 Data terkirim:", response.data);
+
+      Swal.fire({
+        icon: "success",
+        title: "Cerita Berhasil Dikirim! 🎉",
+        text: "Terima kasih sudah mengirimkan cerita fantasi kamu.",
+      });
+
+      onSubmit?.(response.data);
+
+      setForm({
+        nama: "",
+        absen: "",
+        kelas: "",
+        judul: "",
+        cerita1: "",
+        cerita2: "",
+        cerita3: "",
+        cerita4: "",
+      });
+    } catch (error) {
+      console.error("❌ Error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Gagal Mengirim 😢",
+        text: "Silakan coba lagi nanti atau cek koneksi internet kamu.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -74,9 +137,9 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
       {[Img1, Img2, Img3, Img4].map((img, index) => (
         <div
           key={index}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start space-y-4 md:space-y-0"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
         >
-          <img src={img} alt={`gambar-${index + 1}`} className="rounded-lg shadow-white" />
+          <img src={img} alt={`gambar-${index + 1}`} className="rounded-lg" />
           <textarea
             name={`cerita${index + 1}`}
             value={form[`cerita${index + 1}` as keyof typeof form]}
@@ -87,14 +150,14 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
         </div>
       ))}
 
-      {/* Tombol */}
       <div className="flex justify-center pt-6">
         <Button
           type="submit"
           variant="outlined"
+          disabled={loading}
           className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg hover:!bg-white/80 duration-300"
         >
-          Kirim Ceritaku
+          {loading ? "Mengirim..." : "Kirim Ceritaku"}
         </Button>
       </div>
     </form>

@@ -119,7 +119,7 @@ const Nilai_Evaluasi_Latihan = () => {
                             className="mt-4 shadow-lg"
                         >
                             <Table>
-                                <TableHead className="bg-amber-600">
+                                <TableHead className="bg-amber-600/20">
                                     <TableRow className="text-gray-200">
                                         <TableCell>No</TableCell>
                                         <TableCell>

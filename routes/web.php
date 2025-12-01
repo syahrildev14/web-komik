@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\CeritaFantasiController;
 
 
 // Route User
@@ -45,7 +46,15 @@ Route::prefix('api')->group(function () {
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
     Route::get('/simpan-kuis', [QuizController::class, 'index'])
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
+    Route::post('/cerita', [CeritaFantasiController::class, 'store'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+    Route::get('/cerita', [CeritaFantasiController::class, 'index'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
+    Route::post('/nilai-kreatif', [CeritaFantasiController::class, 'storeNilai'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
 });
+
+
 
 
 require __DIR__ . '/settings.php';
