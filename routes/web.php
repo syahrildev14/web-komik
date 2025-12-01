@@ -50,7 +50,13 @@ Route::prefix('api')->group(function () {
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
     Route::get('/cerita', [CeritaFantasiController::class, 'index'])
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class);
+
+    // Nilai Kreatif
     Route::post('/nilai-kreatif', [CeritaFantasiController::class, 'storeNilai'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+    Route::get('/nilai-kreatif/{id}', [CeritaFantasiController::class, 'showNilai'])
+        ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+    Route::get('/nilai-kreatif/{id}/cetak', [CeritaFantasiController::class, 'cetakPDF'])
         ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
 });
 

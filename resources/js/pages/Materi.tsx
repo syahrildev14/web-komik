@@ -12,7 +12,7 @@ const Materi = () => {
     return (
         <AppLayout>
             {/* Hero Section */}
-            <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20 ">
+            <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20">
                 {/* Text */}
                 <div className="max-w-xl space-y-5 text-center text-white md:text-left">
                     <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
@@ -20,11 +20,12 @@ const Materi = () => {
                     </h1>
 
                     <p className="text-base sm:text-lg md:text-xl">
-                        Cerita fantasi adalah cerita yang menghadirkan dunia,
-                        tokoh, dan peristiwa yang tidak dapat ditemukan dalam
-                        kehidupan nyata. Imajinasi menjadi penggerak utama,
-                        sehingga pembaca dibawa ke pengalaman yang penuh
-                        keajaiban.
+                        Cerita fantasi adalah cerita yang mengandung unsur
+                        keajaiban, keanehan, atau kemisteriusan yang tidak
+                        ditemukan dalam dunia nyata. Cerita fantasi mengajak
+                        pembaca masuk ke dalam dunia imajinatif yang penuh
+                        dengan hal-hal yang mustahil terjadi di kehidupan
+                        sehari-hari.
                     </p>
 
                     <Button
@@ -50,12 +51,12 @@ const Materi = () => {
             <UnsurKebahasaanFantasi />
 
             {/* Contoh Teks Cerita Fantasi */}
-            <section className="px-4 py-10 text-white ">
+            <section className="px-4 py-10 text-white">
                 <h1 className="text-center text-3xl font-bold md:text-5xl">
                     Contoh Teks Cerita Fantasi
                 </h1>
 
-                <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 md:flex-row mt-12 lg:mt-20">
+                <div className="mx-auto mt-12 flex max-w-screen-xl flex-col items-center justify-center gap-10 md:flex-row lg:mt-20">
                     {/* Gambar */}
                     <div className="flex w-full justify-center md:w-1/2 md:justify-start">
                         <img
@@ -108,7 +109,7 @@ const Materi = () => {
                 <div className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-xl shadow-lg">
                     <iframe
                         className="absolute inset-0 h-full w-full"
-                        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+                        src="https://www.youtube.com/watch?v=MQ2ByRSEcH8"
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
