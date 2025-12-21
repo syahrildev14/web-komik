@@ -1,4 +1,6 @@
 import AppLayout from '@/layouts/app-layout';
+import type { Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 // image
 import Img2 from '@/assets/images/2.jpeg';
 import imgHero from '@/assets/images/book.svg';
@@ -8,41 +10,109 @@ import { Button } from '@mui/material';
 // icons
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
+const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+        },
+    },
+};
+
+const item: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
+    },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+        },
+    },
+};
+
 const Materi = () => {
     return (
         <AppLayout>
             {/* Hero Section */}
             <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20">
                 {/* Text */}
-                <div className="max-w-xl space-y-5 text-center text-white md:text-left">
-                    <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
+                <motion.div
+                    className="max-w-xl space-y-5 text-center text-white md:text-left"
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                >
+                    {/* Title */}
+                    <motion.h1
+                        variants={item}
+                        className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl"
+                    >
                         Apa Itu Cerita Fantasi?
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-base sm:text-lg md:text-xl">
+                    {/* Description */}
+                    <motion.p
+                        variants={item}
+                        className="text-base sm:text-lg md:text-xl"
+                    >
                         Cerita fantasi adalah cerita yang mengandung unsur
                         keajaiban, keanehan, atau kemisteriusan yang tidak
                         ditemukan dalam dunia nyata. Cerita fantasi mengajak
                         pembaca masuk ke dalam dunia imajinatif yang penuh
                         dengan hal-hal yang mustahil terjadi di kehidupan
                         sehari-hari.
-                    </p>
+                    </motion.p>
 
-                    <Button
-                        variant="outlined"
-                        className="group mx-auto flex items-center gap-2 !rounded-xl !border-amber-600 !bg-white !px-5 !py-3 text-base !text-amber-600 duration-300 hover:!bg-amber-600 hover:!text-white sm:!text-lg md:mx-0"
-                    >
-                        Pelajari Selengkapnya
-                        <ArrowCircleDownIcon className="text-amber-600 duration-300 group-hover:text-white" />
-                    </Button>
-                </div>
+                    {/* Button */}
+                    <motion.div variants={item}>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="mx-auto w-fit md:mx-0"
+                        >
+                            <Button
+                                variant="outlined"
+                                className="group flex items-center gap-2 !rounded-xl !border-amber-600 !bg-white !px-5 !py-3 text-base !text-amber-600 transition-all duration-300 hover:!bg-amber-600 hover:!text-white sm:!text-lg"
+                            >
+                                Pelajari Selengkapnya
+                                {/* Animated Icon */}
+                                <motion.span
+                                    animate={{ y: [0, 6, 0] }}
+                                    transition={{
+                                        duration: 1.2,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    }}
+                                >
+                                    <ArrowCircleDownIcon className="text-amber-600 transition-colors duration-300 group-hover:text-white" />
+                                </motion.span>
+                            </Button>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Image */}
                 <div>
-                    <img
+                    <motion.img
                         src={imgHero}
                         alt="Cerita Fantasi"
                         className="w-[20rem] object-contain sm:w-64 md:w-96 lg:w-[42rem]"
+                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{
+                            duration: 0.8,
+                            ease: [0.16, 1, 0.3, 1],
+                        }}
+                        whileHover={{
+                            y: -8,
+                            rotate: 1,
+                            transition: { duration: 0.3 },
+                        }}
                     />
                 </div>
             </div>

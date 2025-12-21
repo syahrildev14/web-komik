@@ -20,7 +20,7 @@ const cardData = [
         iconColor: '#FF6D1F',
         iconBg: '#FBF3D5',
         title: 'Materi Bahasa Indonesia',
-        subtitle: 'Kelas 7 - Semester 1',
+        subtitle: 'Kelas 7 SMP',
         description: 'Pelajari materi lengkap dengan komik interaktif.',
         sx: { background: 'linear-gradient(135deg, #F9F8F6, #BADFDB)' },
     },
@@ -48,12 +48,12 @@ export default function welcome() {
     return (
         <AppLayout>
             <HeroSection />
-            <div className="mt-12 space-y-2 text-center text-white">
+            <div className="mt-12 space-y-2 px-8 text-center text-white">
                 <h1 className="text-lg font-bold md:text-2xl">
                     Apa Itu Layar Imajinasi?
                 </h1>
-                <p className="mx-auto max-w-xl text-sm">
-                    Website edukasi berbasis animasi yang membantu siswa SMK
+                <p className="mx-auto text-sm">
+                    Website edukasi berbasis animasi yang membantu siswa SMP
                     memahami teks cerita fantasi secara visual dan kreatif.
                 </p>
             </div>

@@ -9,7 +9,7 @@ export default function HeroSection() {
     return (
         <section
   className="
-    relative flex w-full min-h-[70vh] md:min-h-[90vh] 
+    relative flex w-full h-screen min-h-[70vh] md:min-h-[90vh] 
     items-center justify-center text-white
     bg-cover bg-center
   "
@@ -49,11 +49,11 @@ export default function HeroSection() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       className="
-        font-extrabold text-5xl sm:text-6xl 
-        md:text-7xl text-amber-500 max-w-[8em] md:max-w-2xl mx-auto
+        font-extrabold text-6xl sm:text-7xl 
+        md:text-8xl text-amber-500 max-w-[8em] md:max-w-2xl mx-auto leading-tight
       "
     >
-      Visual, Cerita, Edukasi — Semua dalam Satu Komik Animasi
+      Layar Imajinasi <br /><p className='text-3xl mt-6 italic mx-auto text-center w-2/3'>Satu Layar Seribu Imajinasi</p>
     </motion.h1>
 
     <motion.div
@@ -64,8 +64,8 @@ export default function HeroSection() {
     >
       <Button
           variant="outlined"
-          className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg 
-        hover:!bg-white/80 hover:!text-amber-600 duration-300">
+          className="!border-white !mt-4 !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !shadow-lg !text-lg 
+        hover:!bg-amber-600 hover:!text-white duration-300 animate-bounce">
           Mulai Sekarang
       </Button>
     </motion.div>

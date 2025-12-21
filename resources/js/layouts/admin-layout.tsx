@@ -34,13 +34,13 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 {/* Nav Section */}
                 <nav className="space-y-2 p-4">
                     {/* Dashboard */}
-                    <Link
+                    {/* <Link
                         href="/admin/dashboard"
                         className={`flex items-center gap-3 rounded-lg p-3 ${isActive('/admin/dashboard') ? 'bg-gray-100/50 text-white' : 'text-gray-300 hover:bg-gray-100/10'}`}
                     >
                         <DashboardIcon className="text-inherit" />
                         <span>Dashboard</span>
-                    </Link>
+                    </Link> */}
 
                     {/* Nilai Evaluasi & Latihan */}
                     <Link

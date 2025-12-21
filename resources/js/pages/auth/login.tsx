@@ -4,7 +4,7 @@ import { Button, Paper, TextField } from '@mui/material';
 
 export default function Login() {
     const handleLogin = () => {
-        router.visit('/admin/dashboard');
+        router.visit('/admin/nilai-evaluasi-latihan');
     };
 
     return (
