@@ -8,6 +8,7 @@ import StrukturCeritaFantasi from '@/components/ui/StrukturCeritaFantasi';
 import UnsurKebahasaanFantasi from '@/components/ui/UnsurKebahasaanFantasi';
 import { Button } from '@mui/material';
 // icons
+
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 const container: Variants = {
@@ -76,6 +77,13 @@ const Materi = () => {
                             className="mx-auto w-fit md:mx-0"
                         >
                             <Button
+                                onClick={() => {
+                                    document
+                                        .getElementById('struktur-cerita')
+                                        ?.scrollIntoView({
+                                            behavior: 'smooth',
+                                        });
+                                }}
                                 variant="outlined"
                                 className="group flex items-center gap-2 !rounded-xl !border-amber-600 !bg-white !px-5 !py-3 text-base !text-amber-600 transition-all duration-300 hover:!bg-amber-600 hover:!text-white sm:!text-lg"
                             >

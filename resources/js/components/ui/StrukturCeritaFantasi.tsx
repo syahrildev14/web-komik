@@ -38,7 +38,7 @@ export default function StrukturCeritaFantasi() {
     ];
 
     return (
-        <div style={{ backgroundImage: `url(${Bg3})` }} className="bg-no-repeat bg-cover bg-center w-full min-h-screen bg-[#25024C] flex flex-col items-center py-16 px-4">
+        <div id='struktur-cerita' style={{ backgroundImage: `url(${Bg3})` }} className="bg-no-repeat bg-cover bg-center w-full min-h-screen bg-[#25024C] flex flex-col items-center py-16 px-4">
          
             {/* Header Ribbon */}
             <div className="relative mb-12">

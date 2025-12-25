@@ -1,6 +1,7 @@
 import BgHero from '@/assets/images/bgfull.svg';
 import Laba2 from '@/assets/images/laba.svg';
 import Labu from '@/assets/images/labu.svg';
+import { Link } from '@inertiajs/react';
 
 import { Button } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -62,12 +63,14 @@ export default function HeroSection() {
       transition={{ duration: 0.7, delay: 0.35 }}
       className="mt-6 flex justify-center"
     >
-      <Button
-          variant="outlined"
-          className="!border-white !mt-4 !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !shadow-lg !text-lg 
-        hover:!bg-amber-600 hover:!text-white duration-300 animate-bounce">
-          Mulai Sekarang
-      </Button>
+      <Link href="/materi">
+        <Button
+            variant="outlined"
+            className="!border-white !mt-4 !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !shadow-lg !text-lg 
+          hover:!bg-amber-600 hover:!text-white duration-300 animate-bounce">
+            Mulai Sekarang
+        </Button>
+      </Link>
     </motion.div>
   </div>
 

@@ -1,10 +1,11 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/GridLegacy';
 // images
-import img1 from '@/assets/grid/1.jpeg';
-import img2 from '@/assets/grid/2.jpeg';
-import img3 from '@/assets/grid/3.jpeg';
-import img4 from '@/assets/grid/4.jpeg';
+import img1 from '@/assets/grid/1.jpg';
+import img2 from '@/assets/grid/2.jpg';
+import img3 from '@/assets/grid/3.jpg';
+import img4 from '@/assets/grid/4.jpg';
+
 
 export default function ImageGrid() {
     return (
@@ -28,7 +29,7 @@ export default function ImageGrid() {
                                 Judul Gambar 1
                             </h3>
                             <p className="text-sm opacity-80">
-                                Deskripsi singkat muncul saat hover
+                                Deskripsi singkat
                             </p>
                         </div>
                     </div>

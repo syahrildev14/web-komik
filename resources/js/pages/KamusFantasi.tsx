@@ -1,56 +1,235 @@
 import AppLayout from '@/layouts/app-layout';
-import NoiseAwareIcon from '@mui/icons-material/NoiseAware';
 
 const KamusFantasi = () => {
     const istilahFantasi = [
+        //==================================================== 1-5
         {
-            kata: 'Tokoh Utama',
-            arti: 'Karakter utama dalam cerita yang mengalami petualangan.',
+            kata: 'Alam Gaib',
+            arti: 'Dunia yang tidak terlihat manusia',
+            contoh: '"Ia masuk ke alam gaib."',
         },
         {
-            kata: 'Tokoh Antagonis',
-            arti: 'Karakter yang menentang tokoh utama atau menjadi penghalang.',
+            kata: 'Bayangan',
+            arti: 'Makhluk gelap yang sulit dilihat',
+            contoh: '"Bayangan itu bergerak tanpa suara."',
         },
         {
-            kata: 'Magis',
-            arti: 'Hal-hal yang berhubungan dengan kekuatan sihir atau keajaiban.',
+            kata: 'Benteng',
+            arti: 'Bangunan kuat untuk pertahanan',
+            contoh: '"Pasukan berlindung di dalam benteng."',
+        },
+        {
+            kata: 'Cahaya Suci',
+            arti: 'Kekuatan baik untuk melawan kejahatan',
+            contoh: '"Cahaya suci mengusir kegelapan."',
         },
         {
             kata: 'Dimensi',
-            arti: 'Dunia atau ruang lain yang berbeda dari dunia nyata.',
+            arti: 'Ruang atau dunia yang berbeda',
+            contoh: '"Mereka terjebak di dimensi lain."',
+        },
+        //==================================================== 6-10
+        {
+            kata: 'Dunia Paralel',
+            arti: 'Dunia lain yang berbeda dari dunia manusia',
+            contoh: '"Ia tersesat ke dunia paralel."',
         },
         {
-            kata: 'Legenda',
-            arti: 'Cerita turun-temurun yang biasanya bercampur unsur magis.',
-        },
-        { kata: 'Portal', arti: 'Gerbang untuk berpindah ke dunia lain.' },
-        {
-            kata: 'Misi',
-            arti: 'Tugas penting yang harus diselesaikan tokoh utama.',
+            kata: 'Gerbang Ajaib',
+            arti: 'Pintu besar yang memiliki kekuatan sihir',
+            contoh: '"Gerbang ajaib itu terbuka."',
         },
         {
-            kata: 'Makhluk Fantasi',
-            arti: 'Makhluk yang tidak ada di dunia nyata, seperti naga, peri, elf.',
+            kata: 'Hutan Terlarang',
+            arti: 'Hutan berbahaya dan dilarang dimasuki',
+            contoh: '"Tak ada yang berani masuk hutan terlarang."',
         },
+        {
+            kata: 'Ilusi',
+            arti: 'Tipuan penglihatan akibat sihir',
+            contoh: '"Musuh terperangkap dalam ilusi."',
+        },
+        {
+            kata: 'Istana Ajaib',
+            arti: 'Istana dengan kekuatan sihir',
+            contoh: '"Istana ajaib tampak berkilau."',
+        },
+        //==================================================== 11-15
+        {
+            kata: 'Jimat',
+            arti: 'Benda kecil yang memiliki kekuatan magis',
+            contoh: '"Ia membawa jimat pelindung."',
+        },
+        {
+            kata: 'Kekuatan Gelap',
+            arti: 'Kekuatan jahat',
+            contoh: '"Kekuatan gelap mengancam dunia."',
+        },
+        {
+            kata: 'Kerajaan',
+            arti: 'Wilayah yang dipimpin raja',
+            contoh: '"Kerajaan Elvaria diserang naga."',
+        },
+        {
+            kata: 'Klan',
+            arti: 'Kelompok atau keluarga besar',
+            contoh: '"Ia berasal dari klan pejuang."',
+        },
+        {
+            kata: 'Kristal Ajaib',
+            arti: 'Batu berkilau berkekuatan',
+            contoh: '"Kristal ajaib sangat berharga."',
+        },
+        //==================================================== 16-20
         {
             kata: 'Kutukan',
-            arti: 'Sihir negatif yang membuat seseorang mengalami nasib buruk.',
+            arti: 'Sihir jahat',
+            contoh: '"Desa itu terkena kutukan."',
         },
         {
-            kata: 'Artefak',
-            arti: 'Benda magis yang memiliki kekuatan atau rahasia penting.',
+            kata: 'Makhluk Ajaib',
+            arti: 'Makhluk tidak nyata',
+            contoh: '"Hutan dihuni makhluk ajaib."',
         },
         {
-            kata: 'Mentor',
-            arti: 'Tokoh yang menjadi pembimbing atau pemberi petunjuk kepada tokoh utama.',
+            kata: 'Makhluk Gaib',
+            arti: 'Makhluk tak kasat mata',
+            contoh: '"Ia mendengar suara makhluk gaib."',
         },
         {
-            kata: 'Climax',
-            arti: 'Bagian puncak dari cerita, biasanya saat pertarungan atau konflik utama.',
+            kata: 'Mantra',
+            arti: 'Ucapan khusus sihir',
+            contoh: '"Ia membaca mantra."',
         },
         {
-            kata: 'Ending',
-            arti: 'Akhir cerita, bisa berupa kebahagiaan, kesedihan, atau kejutan.',
+            kata: 'Medan Perang',
+            arti: 'Tempat pertempuran',
+            contoh: '"Medan perang dipenuhi kabut."',
+        },
+        //==================================================== 21-25
+        {
+            kata: 'Naga',
+            arti: 'Makhluk besar bersayap',
+            contoh: '"Naga menjaga gunung emas."',
+        },
+        {
+            kata: 'Pahlawan',
+            arti: 'Tokoh utama berani',
+            contoh: '"Pahlawan menolong semua orang."',
+        },
+        {
+            kata: 'Pedang Ajaib',
+            arti: 'Senjata berkekuatan',
+            contoh: '"Pedang ajaib bersinar."',
+        },
+        {
+            kata: 'Pedang Cahaya',
+            arti: 'Pedang bersinar',
+            contoh: '"Pedang cahaya menyala."',
+        },
+        {
+            kata: 'Pedang terlarang',
+            arti: 'Senjata berbahaya',
+            contoh: '"Pedang terlarang disimpan."',
+        },
+        //==================================================== 26-30
+        {
+            kata: 'Penjaga',
+            arti: 'Pelindung tempat',
+            contoh: '"Penjaga gerbang berdiri."',
+        },
+        {
+            kata: 'Penjaga Gerbang',
+            arti: 'Pelindung pintu dunia lain',
+            contoh: '"Penjaga gerbang melarang masuk."',
+        },
+        {
+            kata: 'Penjaga Waktu',
+            arti: 'Makhluk pengatur waktu',
+            contoh: '"Penjaga waktu muncul."',
+        },
+        {
+            kata: 'Penjahat',
+            arti: 'Tokoh jahat',
+            contoh: '"Penjahat merebut kekuasaan."',
+        },
+        {
+            kata: 'Penjelmaan',
+            arti: 'Perubahan wujud',
+            contoh: '"Penyihir melakukan penjelmaan."',
+        },
+        //==================================================== 31-35
+        {
+            kata: 'Peri',
+            arti: 'Makhluk kecil bersayap',
+            contoh: '"Peri membantu anak itu."',
+        },
+        {
+            kata: 'Portal',
+            arti: 'Pintu ajaib antar dunia',
+            contoh: '"Ia masuk portal."',
+        },
+        {
+            kata: 'Pusaka',
+            arti: 'Benda warisan sakti',
+            contoh: '"Pusaka dijaga turun-temurun."',
+        },
+        {
+            kata: 'Putri',
+            arti: 'Anak perempuan raja',
+            contoh: '"Putri memiliki kekuatan."',
+        },
+        {
+            kata: 'Raja',
+            arti: 'Pemimpin kerajaan',
+            contoh: '"Raja memerintah pasukan."',
+        },
+        //==================================================== 36-40
+        {
+            kata: 'Raksasa',
+            arti: 'Makhluk besar',
+            contoh: '"Raksasa menjaga gerbang."',
+        },
+        {
+            kata: 'Ramalan',
+            arti: 'Perkiraan masa depan',
+            contoh: '"Ramalan mengatakan pahlawan datang."',
+        },
+        {
+            kata: 'Ramuan',
+            arti: 'Cairan ajaib',
+            contoh: '"Ia meminum ramuan."',
+        },
+        {
+            kata: 'Ratu',
+            arti: 'Pemimpin perempuan',
+            contoh: '"Ratu bijaksana."',
+        },
+        {
+            kata: 'Roh Penjaga',
+            arti: 'Roh pelindung',
+            contoh: '"Roh penjaga muncul."',
+        },
+        //==================================================== 41-44
+        {
+            kata: 'Sayap',
+            arti: 'Alat terbang',
+            contoh: '"Peri memiliki sayap."',
+        },
+        {
+            kata: 'Sihir',
+            arti: 'Kekuatan ajaib',
+            contoh: '"Penyihir menggunakan sihir."',
+        },
+        {
+            kata: 'Takdir',
+            arti: 'Jalan hidup',
+            contoh: '"Itu adalah takdirnya."',
+        },
+        {
+            kata: 'Tongkat Sihir',
+            arti: 'Alat mengeluarkan sihir',
+            contoh: '"Ia memegang tongkat sihir."',
         },
     ];
 
@@ -61,7 +240,7 @@ const KamusFantasi = () => {
                 <h1 className="mb-4 text-center text-4xl font-bold text-amber-400">
                     📚 Kamus Fantasi
                 </h1>
-                <p className="mb-8 text-center text-lg text-gray-300">
+                <p className="mb-8 text-center text-lg text-gray-300 md:max-w-3xl mx-auto">
                     Temukan istilah-istilah penting dalam dunia fantasi untuk
                     membantumu menulis cerita yang lebih seru dan imajinatif!
                 </p>
@@ -77,30 +256,11 @@ const KamusFantasi = () => {
                                 {item.kata}
                             </h2>
                             <p className="text-gray-200">{item.arti}</p>
+                            <p className="text-gray-200 italic">
+                                Contoh: {item.contoh}
+                            </p>
                         </div>
                     ))}
-                </div>
-
-                {/* Tips penggunaan */}
-                <div className="mt-10 rounded-lg border border-amber-600 bg-[#ffffff08] p-6">
-                    <h3 className="mb-2 text-2xl font-semibold text-amber-400">
-                        <NoiseAwareIcon/> Cara Menggunakan Kamus Fantasi
-                    </h3>
-                    <ul className="list-inside list-disc space-y-2 text-gray-200">
-                        <li>Pilih istilah yang cocok untuk ceritamu.</li>
-                        <li>Kembangkan menjadi kalimat atau dialog menarik.</li>
-                        <li>
-                            Misalnya gunakan kata{' '}
-                            <span className="font-bold text-amber-300">
-                                “portal”
-                            </span>{' '}
-                            untuk memulai petualangan.
-                        </li>
-                        <li>
-                            Jika ada istilah baru yang belum ada, kamu boleh
-                            menambahkannya sendiri!
-                        </li>
-                    </ul>
                 </div>
 
                 {/* Motivasi */}

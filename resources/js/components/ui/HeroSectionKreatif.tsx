@@ -1,4 +1,4 @@
-import BgHero from '@/assets/images/bg-kreatif.svg';
+import BgHero from '@/assets/grid/2.jpg';
 
 
 export default function HeroSection() {
