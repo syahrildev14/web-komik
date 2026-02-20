@@ -27,7 +27,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 {/* Logo / Title */}
                 <div className="border-b p-6">
                     <h1 className="text-center text-lg font-bold text-gray-200">
-                        Komikuna
+                        Cerita Fantasi
                     </h1>
                 </div>
 

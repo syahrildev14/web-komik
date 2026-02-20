@@ -319,7 +319,7 @@ const EvaluasiLatihan: React.FC = () => {
 
         try {
             const res = await axios.post(
-                'http://localhost:8000/api/simpan-kuis',
+                '/api/simpan-kuis',
                 payload,
             );
             console.log('Response dari server:', res.data);
@@ -346,7 +346,7 @@ const EvaluasiLatihan: React.FC = () => {
     return (
         <AppLayout>
             {/* Hero Section */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-b from-purple-800 to-purple-900 px-6 py-16 text-center text-white">
+            <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary to-primary/50 px-6 py-16 text-center text-white">
                 <div className="absolute inset-0 bg-[url('/pattern-lines.svg')] bg-repeat opacity-10"></div>
 
                 <div className="relative z-10 mx-auto max-w-3xl space-y-4">

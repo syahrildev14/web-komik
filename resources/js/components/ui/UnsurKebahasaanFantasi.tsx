@@ -9,7 +9,7 @@ export default function UnsurKebahasaanFantasi() {
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
     {/* Heading (tetap satu kolom, spanning 2 kolom di layar besar) */}
-    <div className="md:col-span-2 space-y-2">
+    <div className="md:col-span-2 space-y-2 text-accent">
         <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left">
             Unsur Kebahasaan Cerita Fantasi
         </h2>
@@ -19,13 +19,13 @@ export default function UnsurKebahasaanFantasi() {
     </div>
 
     {/* 1. Kata Ganti */}
-    <div className="space-y-3">
-        <h3 className="font-bold text-lg mb-2 bg-amber-600 w-fit px-4 py-1 rounded-full">1. Kata Ganti</h3>
-        <p className="text-white text-sm">
+    <div className="space-y-3 text-accent">
+        <h3 className="font-bold text-lg mb-2 bg-primary w-fit px-4 py-1 rounded-full text-white">1. Kata Ganti</h3>
+        <p className=" text-sm">
             Konjungsi menghubungkan kata, frasa, atau kalimat agar alur cerita runtut dan logis.
         </p>
 
-        <div className="font-semibold">
+        <div className="font-semibold text-accent">
             <p>Kata Ganti Orang</p>
             <ul className="ml-6 space-y-1">
                 <li className="list-disc font-normal">Orang pertama: aku, saya, kami, kita</li>
@@ -41,7 +41,7 @@ export default function UnsurKebahasaanFantasi() {
             </ul>
         </div>
 
-        <div className="font-semibold">
+        <div className="font-semibold text-accent">
             <p>Kata Ganti Benda/Petunjuk</p>
             <ul className="ml-6 space-y-1">
                 <li className="list-disc font-normal">ini</li>
@@ -55,9 +55,9 @@ export default function UnsurKebahasaanFantasi() {
     </div>
 
     {/* 2. Konjungsi */}
-    <div className="space-y-3">
-        <h3 className="font-bold text-lg mb-2 bg-amber-600 w-fit px-4 py-1 rounded-full">2. Konjungsi</h3>
-        <p className="text-white text-sm">
+    <div className="space-y-3 text-accent">
+        <h3 className="font-bold text-lg mb-2 bg-primary w-fit px-4 py-1 rounded-full text-white">2. Konjungsi</h3>
+        <p className="text-accent text-sm">
             Konjungsi menghubungkan kata, frasa, atau kalimat agar alur cerita runtut dan logis.
         </p>
 
@@ -103,13 +103,13 @@ export default function UnsurKebahasaanFantasi() {
     </div>
 
     {/* 3. Kalimat Langsung & Tidak Langsung */}
-    <div className="md:col-span-2 space-y-3">
-        <h3 className="font-bold text-lg mb-2 bg-amber-600 w-fit px-4 py-1 rounded-full">
+    <div className="md:col-span-2 space-y-3 text-accent">
+        <h3 className="font-bold text-lg mb-2 bg-primary w-fit px-4 py-1 rounded-full text-white">
             3. Kalimat Langsung dan Tidak Langsung
         </h3>
 
         {/* a. Kalimat Langsung */}
-        <div className="font-semibold">
+        <div className="font-semibold text-accent">
             <p>a. Kalimat Langsung</p>
             <ul className="ml-6 space-y-1">
                 <li className="font-normal">Kalimat yang mengutip langsung ucapan tokoh, ditandai dengan tanda petik.</li>

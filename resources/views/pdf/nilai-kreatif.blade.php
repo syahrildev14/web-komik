@@ -45,6 +45,9 @@
             margin-bottom: 2px;
         }
     </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo-cerita.png') }}">
+
+
 </head>
 
 <body>
@@ -69,7 +72,7 @@
                 <td><b>{{ $nilai->total }}</b></td>
         </tr>
     </table>
-    
+
     <p><b>Rata-rata Skor: {{ number_format($nilai->total / 17, 2) }}</b></p>
 
 
@@ -84,7 +87,7 @@
         @endfor
 
         <br><br>
-        <p>Guru Penilai <b>Muhammad Samsudin S.Pd</b></p>
+        <p>Guru Penilai <b>Dita Permatasari, S.Pd.</b></p>
 
 </body>
 

@@ -103,7 +103,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/cerita",
+        "/api/cerita",
         form,
         {
           headers: {
@@ -160,7 +160,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-5xl mx-auto text-white space-y-8 px-4 mt-10 mb-12"
+      className="w-full max-w-5xl mx-auto text-accent space-y-8 px-4 mt-10 mb-12"
     >
       {/* Identitas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -180,7 +180,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
                 ? "Kelas"
                 : "Judul Cerita"
             }
-            className="bg-transparent px-2 rounded-md border-b border-gray-400 py-2 focus:outline-none"
+            className="bg-transparent px-2 rounded-md border-b border-accent py-2 focus:outline-none"
           />
         ))}
       </div>
@@ -197,7 +197,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
             value={form[`cerita${index + 1}` as keyof typeof form]}
             onChange={handleChange}
             placeholder={`Tulis Cerita Untuk Gambar ${index + 1}`}
-            className="w-full bg-transparent border-b border-gray-400 p-2 min-h-[100px] focus:outline-none"
+            className="w-full bg-transparent border-b border-accent p-2 min-h-[100px] focus:outline-none"
           />
         </div>
       ))}
@@ -207,7 +207,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
           type="submit"
           variant="outlined"
           disabled={loading}
-          className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg hover:!bg-white/80 duration-300"
+          className="!bg-primary !text-white !rounded-xl !px-6 !py-3 !text-lg hover:!bg-primary/80 duration-300"
         >
           {loading ? "Mengirim..." : "Kirim Ceritaku"}
         </Button>

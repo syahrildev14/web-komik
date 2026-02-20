@@ -95,7 +95,7 @@ const Nilai_Ruang_Kreatif = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/api/cerita')
+            .get('/api/cerita')
             .then((res) => setData(res.data))
             .catch(() =>
                 Swal.fire('Gagal Mengambil Data', 'Cobain lagi!', 'error'),
@@ -122,7 +122,7 @@ const Nilai_Ruang_Kreatif = () => {
 
     const cetakPDF = (cerita_id: number) => {
         window.open(
-            `http://localhost:8000/api/nilai-kreatif/${cerita_id}/cetak`,
+            `/api/nilai-kreatif/${cerita_id}/cetak`,
             '_blank',
         );
     };
@@ -131,7 +131,7 @@ const Nilai_Ruang_Kreatif = () => {
         if (!selectedData) return;
 
         try {
-            await axios.post('http://localhost:8000/api/nilai-kreatif', {
+            await axios.post('/api/nilai-kreatif', {
                 cerita_id: selectedData.id, // ⬅ sesuaikan dengan backend
                 nilai1: Number(nilai.nilai1),
                 nilai2: Number(nilai.nilai2),

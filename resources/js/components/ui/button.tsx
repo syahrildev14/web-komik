@@ -20,7 +20,7 @@ const MyButton: React.FC<MyButtonProps> = ({
   return (
     <Button
       variant={variant}
-      onClick={!href ? onClick : undefined} // kalau pakai href, jangan pakai onClick
+      onClick={!href ? onClick : undefined}
       component={href ? Link : "button"}
       href={href}
       className={className}

@@ -81,12 +81,12 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-3xl mx-auto space-y-6 text-purple-900"
+      className="w-full max-w-3xl mx-auto space-y-6 text-white"
     >
       {/* ============================
             FORM IDENTITAS SISWA
       ============================= */}
-      <div className="bg-white p-6 rounded-2xl shadow-md space-y-4">
+      <div className="bg-primary p-6 rounded-2xl shadow-md space-y-4">
         <h2 className="font-bold text-xl mb-2">Identitas Siswa</h2>
 
         <input
@@ -96,7 +96,7 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
           onChange={handleIdentitasChange}
           placeholder="Nama Lengkap"
           required
-          className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
+          className="w-full p-2 border  rounded-lg focus:outline-primary"
         />
 
         <input
@@ -106,7 +106,7 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
           onChange={handleIdentitasChange}
           placeholder="Nomor Absen"
           required
-          className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
+          className="w-full p-2 border  rounded-lg focus:outline-primary"
         />
 
         <input
@@ -116,7 +116,7 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
           onChange={handleIdentitasChange}
           placeholder="Kelas"
           required
-          className="w-full p-2 border border-purple-200 rounded-lg focus:outline-purple-600"
+          className="w-full p-2 border  rounded-lg focus:outline-primary"
         />
       </div>
 
@@ -126,10 +126,10 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
       {questions.map((q, index) => (
         <div
           key={index}
-          className="bg-white p-6 rounded-2xl shadow-md space-y-4"
+          className="bg-primary p-6 rounded-2xl shadow-md space-y-4"
         >
           <h3 className="font-bold text-lg">Soal {index + 1}</h3>
-          <p className="text-sm leading-relaxed">{q.question}</p>
+          <p className="text-sm leading-relaxed text-justify">{q.question}</p>
 
           <div className="space-y-2">
             {q.options.map((opt, i) => (
@@ -144,7 +144,7 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
                   checked={answers[index] === opt.value}
                   onChange={() => handleChange(index, opt.value)}
                   required
-                  className="accent-purple-700 scale-110"
+                  className="accent-accent scale-110"
                 />
                 {opt.label}
               </label>
@@ -160,8 +160,8 @@ const KuisPilihanGanda: React.FC<KuisPilihanGandaProps> = ({
         <Button
           type="submit"
           variant="outlined"
-          className="!border-white !bg-white !text-amber-600 !rounded-xl !px-6 !py-3 !text-lg 
-          hover:!bg-white/80 hover:!text-amber-600 duration-300"
+          className=" !bg-primary !text-white !rounded-xl !px-6 !py-3 !text-lg 
+          hover:!bg-primary/80 duration-300"
         >
           Submit
         </Button>

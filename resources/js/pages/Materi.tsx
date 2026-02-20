@@ -3,7 +3,7 @@ import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
 // image
 import Img2 from '@/assets/images/2.jpeg';
-import imgHero from '@/assets/images/book.svg';
+import imgHero from '@/assets/images/imghero.svg';
 import StrukturCeritaFantasi from '@/components/ui/StrukturCeritaFantasi';
 import UnsurKebahasaanFantasi from '@/components/ui/UnsurKebahasaanFantasi';
 import { Button } from '@mui/material';
@@ -40,10 +40,13 @@ const Materi = () => {
     return (
         <AppLayout>
             {/* Hero Section */}
-            <div className="top-0 flex min-h-screen w-full flex-col-reverse items-center justify-center gap-12 px-4 py-12 md:flex-row md:gap-20">
+            <div
+                className="top-0 p-8 lg:p-12 relative flex w-full min-h-screen  items-center justify-center bg-cover bg-center text-center"
+                style={{ backgroundImage: `url(${imgHero})` }}
+            >
                 {/* Text */}
                 <motion.div
-                    className="max-w-xl space-y-5 text-center text-white md:text-left"
+                    className="max-w-5xl space-y-5 text-center bg-white/20 backdrop-blur-lg px-6 py-12 rounded-2xl text-white"
                     variants={container}
                     initial="hidden"
                     animate="show"
@@ -74,7 +77,7 @@ const Materi = () => {
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="mx-auto w-fit md:mx-0"
+                            className=""
                         >
                             <Button
                                 onClick={() => {
@@ -85,7 +88,7 @@ const Materi = () => {
                                         });
                                 }}
                                 variant="outlined"
-                                className="group flex items-center gap-2 !rounded-xl !border-amber-600 !bg-white !px-5 !py-3 text-base !text-amber-600 transition-all duration-300 hover:!bg-amber-600 hover:!text-white sm:!text-lg"
+                                className="group flex items-center gap-2 !rounded-xl !border-primary !bg-white !px-5 !py-3 text-base !text-primary transition-all duration-300 hover:!bg-primary hover:!text-white sm:!text-lg"
                             >
                                 Pelajari Selengkapnya
                                 {/* Animated Icon */}
@@ -104,32 +107,14 @@ const Materi = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* Image */}
-                <div>
-                    <motion.img
-                        src={imgHero}
-                        alt="Cerita Fantasi"
-                        className="w-[20rem] object-contain sm:w-64 md:w-96 lg:w-[42rem]"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{
-                            duration: 0.8,
-                            ease: [0.16, 1, 0.3, 1],
-                        }}
-                        whileHover={{
-                            y: -8,
-                            rotate: 1,
-                            transition: { duration: 0.3 },
-                        }}
-                    />
-                </div>
+
             </div>
 
             <StrukturCeritaFantasi />
             <UnsurKebahasaanFantasi />
 
             {/* Contoh Teks Cerita Fantasi */}
-            <section className="px-8 py-10 text-white md:px-12">
+            <section className="px-8 py-10 text-accent md:px-12">
                 <h1 className="mb-8 text-center text-3xl font-bold md:text-5xl">
                     Contoh Teks Cerita Fantasi
                 </h1>
@@ -223,7 +208,7 @@ const Materi = () => {
             </section>
 
             {/* Video Youtube */}
-            <section className="w-full px-6 py-16 text-white">
+            <section className="w-full px-6 py-16 text-accent">
                 <h1 className="mb-4 text-center text-3xl font-bold md:text-5xl">
                     Pemutaran Video Cerita Fantasi
                 </h1>

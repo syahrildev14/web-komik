@@ -55,7 +55,7 @@ export default function FeatureTextToImage() {
 
             {/* --- TEXT --- */}
             <div
-              className={`space-y-6 text-white ${index % 2 === 1 ? "md:order-1" : ""}`}
+              className={`space-y-6 text-accent ${index % 2 === 1 ? "md:order-1" : ""}`}
               data-aos={item.aos}
             >
               <p className="md:text-4xl font-semibold">{item.title}</p>
@@ -65,8 +65,8 @@ export default function FeatureTextToImage() {
               <Link href="/ruang-kreatif">
                 <Button
                   variant="outlined"
-                  className="!border-white !text-white !rounded-xl !px-6 !py-3 !text-lg 
-                    hover:!bg-white hover:!text-amber-600 duration-300"
+                  className="!border-accent !text-accent !rounded-xl !px-6 !py-3 !text-lg 
+                    hover:!bg-primary hover:!text-white duration-300"
                 >
                   ✦ Coba Sekarang
                 </Button>

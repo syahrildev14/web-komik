@@ -40,7 +40,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
     return (
         <div className="flex min-h-screen flex-col">
             {/* Header */}
-            <header className="sticky top-0 z-[90] bg-amber-600/80 p-4 text-white shadow-md backdrop-blur">
+            <header className="sticky top-0 z-[90] bg-primary/80 p-4 text-white shadow-md backdrop-blur">
                 <div className="container mx-auto flex items-center justify-between">
                     {/* Logo */}
                     <a href="/" className="text-xl font-bold">

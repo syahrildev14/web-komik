@@ -49,7 +49,7 @@ const Nilai_Evaluasi_Latihan = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(
-                    'http://localhost:8000/api/simpan-kuis',
+                    '/api/simpan-kuis',
                 );
                 setData(res.data);
             } catch (error) {

@@ -237,10 +237,10 @@ const KamusFantasi = () => {
         <AppLayout>
             <div className="mx-auto max-w-5xl px-6 py-10 text-white">
                 {/* Judul */}
-                <h1 className="mb-4 text-center text-4xl font-bold text-amber-400">
+                <h1 className="mb-4 text-center text-4xl font-bold text-primary">
                     📚 Kamus Fantasi
                 </h1>
-                <p className="mb-8 text-center text-lg text-gray-300 md:max-w-3xl mx-auto">
+                <p className="mb-8 text-center text-lg text-accent md:max-w-3xl mx-auto">
                     Temukan istilah-istilah penting dalam dunia fantasi untuk
                     membantumu menulis cerita yang lebih seru dan imajinatif!
                 </p>
@@ -250,7 +250,7 @@ const KamusFantasi = () => {
                     {istilahFantasi.map((item, index) => (
                         <div
                             key={index}
-                            className="rounded-lg border border-amber-600 bg-[#ffffff10] p-4 transition duration-300 hover:bg-[#ffffff20]"
+                            className="rounded-lg bg-primary p-4 transition duration-300 hover:bg-primary/90"
                         >
                             <h2 className="text-xl font-semibold text-amber-300">
                                 {item.kata}
@@ -264,7 +264,7 @@ const KamusFantasi = () => {
                 </div>
 
                 {/* Motivasi */}
-                <p className="mt-8 text-center text-lg font-semibold text-amber-400">
+                <p className="mt-8 text-center text-lg font-semibold text-primary">
                     "Kata yang tepat bisa membuka pintu menuju dunia fantasi
                     yang luar biasa!"
                 </p>
