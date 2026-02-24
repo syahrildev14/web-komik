@@ -145,6 +145,11 @@ export default function HeroSection() {
             </Button>
           </Link>
         </motion.div>
+
+        <div className='text-white mt-20 text-sm'>
+          <h1>Tujuan Pembelajaran :</h1>
+          <p>Setelah mengikuti pembelajaran menggunakan media website Layar Imajinasi, peserta didik diharapkan mampu menulis teks cerita fantasi dengan memperhatikan struktur, unsur kebahasaan, dan kreativitas melalui pemanfaatan media website Layar Imajinasi.</p>
+        </div>
       </div>
 
       {/* Decorative Glow */}

@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { ReactNode, useEffect, useState } from 'react';
 import MyButton from '../components/ui/Button';
+import FloatingSocial from '@/components/utils/FloatingSocial';
 
 interface AppLayoutProps {
     children: ReactNode;
@@ -53,11 +54,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className={`relative pb-1 text-base transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 ${
-                                    isActive(item.href)
+                                className={`relative pb-1 text-base transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 ${isActive(item.href)
                                         ? 'text-white after:w-full'
                                         : 'after:w-0 hover:after:w-full'
-                                } `}
+                                    } `}
                             >
                                 {item.label}
                             </a>
@@ -87,11 +87,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setMenuOpen(false)}
-                                className={`block text-lg font-medium transition ${
-                                    isActive(item.href)
+                                className={`block text-lg font-medium transition ${isActive(item.href)
                                         ? 'text-white underline underline-offset-4'
                                         : 'text-white/80 hover:text-white'
-                                } `}
+                                    } `}
                             >
                                 {item.label}
                             </a>
@@ -109,6 +108,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
             {/* Content */}
             <main className="flex-1">{children}</main>
+
+            {/* Floating Social */}
+            <FloatingSocial />
 
             {/* Footer */}
             <footer className="mt-auto bg-gray-800 p-4 text-center text-gray-200 shadow-inner">
