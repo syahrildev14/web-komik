@@ -23,15 +23,6 @@ export default function ImageGrid() {
                         {/* Overlay Gradasi */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 duration-700 group-hover:from-black/60 group-hover:opacity-100"></div>
 
-                        {/* Text muncul saat hover */}
-                        <div className="absolute bottom-4 left-4 translate-y-4 text-white opacity-0 duration-700 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className="text-lg font-semibold">
-                                Judul Gambar 1
-                            </h3>
-                            <p className="text-sm opacity-80">
-                                Deskripsi singkat
-                            </p>
-                        </div>
                     </div>
                 </Grid>
 
@@ -45,14 +36,7 @@ export default function ImageGrid() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 duration-700 group-hover:from-black/60 group-hover:opacity-100"></div>
 
-                        <div className="absolute bottom-4 left-4 translate-y-4 text-white opacity-0 duration-700 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className="text-lg font-semibold">
-                                Judul Gambar 2
-                            </h3>
-                            <p className="text-sm opacity-80">
-                                Deskripsi singkat
-                            </p>
-                        </div>
+
                     </div>
                 </Grid>
 
@@ -66,14 +50,6 @@ export default function ImageGrid() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 duration-700 group-hover:from-black/60 group-hover:opacity-100"></div>
 
-                        <div className="absolute bottom-4 left-4 translate-y-4 text-white opacity-0 duration-700 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className="text-lg font-semibold">
-                                Judul Gambar 3
-                            </h3>
-                            <p className="text-sm opacity-80">
-                                Deskripsi singkat
-                            </p>
-                        </div>
                     </div>
                 </Grid>
 
@@ -87,14 +63,7 @@ export default function ImageGrid() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 duration-700 group-hover:from-black/60 group-hover:opacity-100"></div>
 
-                        <div className="absolute bottom-4 left-4 translate-y-4 text-white opacity-0 duration-700 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className="text-lg font-semibold">
-                                Judul Gambar 4
-                            </h3>
-                            <p className="text-sm opacity-80">
-                                Deskripsi singkat
-                            </p>
-                        </div>
+
                     </div>
                 </Grid>
             </Grid>
