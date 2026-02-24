@@ -22,9 +22,6 @@ class NilaiKreatif extends Model
         'nilai12',
         'nilai13',
         'nilai14',
-        'nilai15',
-        'nilai16',
-        'nilai17',
         'total'
     ];
 

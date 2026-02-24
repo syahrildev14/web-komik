@@ -31,9 +31,6 @@ return new class extends Migration
             $table->text('cerita12')->nullable();
             $table->text('cerita13')->nullable();
             $table->text('cerita14')->nullable();
-            $table->text('cerita15')->nullable();
-            $table->text('cerita16')->nullable();
-            $table->text('cerita17')->nullable();
 
             $table->timestamps();
         });

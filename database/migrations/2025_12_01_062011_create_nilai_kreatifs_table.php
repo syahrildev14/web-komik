@@ -28,9 +28,7 @@ return new class extends Migration
             $table->integer('nilai12');
             $table->integer('nilai13');
             $table->integer('nilai14');
-            $table->integer('nilai15');
-            $table->integer('nilai16');
-            $table->integer('nilai17');
+            
             $table->integer('total');
             $table->timestamps();
         });

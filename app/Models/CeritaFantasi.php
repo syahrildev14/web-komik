@@ -25,9 +25,7 @@ class CeritaFantasi extends Model
         'cerita12',
         'cerita13',
         'cerita14',
-        'cerita15',
-        'cerita16',
-        'cerita17',
+        
     ];
     
     // Relasi ke nilai kreatif

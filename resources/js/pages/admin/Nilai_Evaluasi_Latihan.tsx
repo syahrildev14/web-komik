@@ -103,7 +103,7 @@ const Nilai_Evaluasi_Latihan = () => {
                     label="Cari nama, absen, kelas..."
                     variant="outlined"
                     size="small"
-                    className="mb-4 w-full md:w-1/3"
+                    className="mb-4 w-full md:w-1/3 bg-white"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />

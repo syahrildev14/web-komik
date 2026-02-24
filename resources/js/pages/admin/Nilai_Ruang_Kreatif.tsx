@@ -40,9 +40,7 @@ interface DataRuangKreatif {
     cerita12: string;
     cerita13: string;
     cerita14: string;
-    cerita15: string;
-    cerita16: string;
-    cerita17: string;
+    
 }
 
 type Order = 'asc' | 'desc';
@@ -88,9 +86,7 @@ const Nilai_Ruang_Kreatif = () => {
         nilai12: '',
         nilai13: '',
         nilai14: '',
-        nilai15: '',
-        nilai16: '',
-        nilai17: '',
+       
     });
 
     useEffect(() => {
@@ -117,7 +113,7 @@ const Nilai_Ruang_Kreatif = () => {
     const handleCloseModal = () => {
         setOpenModal(false);
         setSelectedData(null);
-        setNilai({ nilai1: '', nilai2: '', nilai3: '', nilai4: '', nilai5: '', nilai6: '', nilai7: '', nilai8: '', nilai9: '', nilai10: '', nilai11: '', nilai12: '', nilai13: '', nilai14: '', nilai15: '', nilai16: '', nilai17: '' });
+        setNilai({ nilai1: '', nilai2: '', nilai3: '', nilai4: '', nilai5: '', nilai6: '', nilai7: '', nilai8: '', nilai9: '', nilai10: '', nilai11: '', nilai12: '', nilai13: '', nilai14: '', });
     };
 
     const cetakPDF = (cerita_id: number) => {
@@ -147,9 +143,7 @@ const Nilai_Ruang_Kreatif = () => {
                 nilai12: Number(nilai.nilai12),
                 nilai13: Number(nilai.nilai13),
                 nilai14: Number(nilai.nilai14),
-                nilai15: Number(nilai.nilai15),
-                nilai16: Number(nilai.nilai16),
-                nilai17: Number(nilai.nilai17),
+               
             });
 
             Swal.fire({
@@ -195,13 +189,13 @@ const Nilai_Ruang_Kreatif = () => {
         <AppLayout>
             <div className="p-2">
                 <h1 className="mb-6 text-2xl font-bold text-gray-800">
-                    📚 Nilai Ruang Kreatif
+                    Nilai Ruang Kreatif
                 </h1>
 
                 <TextField
                     label="Cari nama, kelas atau judul..."
                     size="small"
-                    className="mb-4 w-full md:w-1/3"
+                    className="mb-4 w-full md:w-1/3 bg-white"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
@@ -311,7 +305,7 @@ const Nilai_Ruang_Kreatif = () => {
                                 <b>Judul:</b> {selectedData.judul}
                             </p>
                             <hr className="my-2" />
-                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17].map((num) => (
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((num) => (
                                 <div key={num} className="mb-3">
                                     <p>
                                         <b>Cerita {num}:</b>{' '}

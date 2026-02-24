@@ -60,26 +60,26 @@
     <!-- TABEL NILAI -->
     <table>
         <tr>
-            @for ($i = 1; $i <= 17; $i++)
+            @for ($i = 1; $i <= 14; $i++)
                 <th>Cerita {{ $i }}</th>
                 @endfor
                 <th>Total</th>
         </tr>
         <tr>
-            @for ($i = 1; $i <= 17; $i++)
+            @for ($i = 1; $i <= 14; $i++)
                 <td>{{ $nilai['nilai'.$i] }}</td>
                 @endfor
                 <td><b>{{ $nilai->total }}</b></td>
         </tr>
     </table>
 
-    <p><b>Rata-rata Skor: {{ number_format($nilai->total / 17, 2) }}</b></p>
+    <p><b>Rata-rata Skor: {{ number_format($nilai->total / 14, 2) }}</b></p>
 
 
     <br><br>
     <h4>📘 Isi Cerita Lengkap</h4>
 
-    @for ($i = 1; $i <= 17; $i++)
+    @for ($i = 1; $i <= 14; $i++)
         <div class="cerita-box">
         <div class="cerita-title">Cerita {{ $i }}</div>
         <div>{{ $nilai->cerita['cerita'.$i] }}</div>

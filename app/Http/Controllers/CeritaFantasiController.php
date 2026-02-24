@@ -52,16 +52,12 @@ class CeritaFantasiController extends Controller
             'nilai12' => 'required|integer|min:0|max:100',
             'nilai13' => 'required|integer|min:0|max:100',
             'nilai14' => 'required|integer|min:0|max:100',
-            'nilai15' => 'required|integer|min:0|max:100',
-            'nilai16' => 'required|integer|min:0|max:100',
-            'nilai17' => 'required|integer|min:0|max:100',
         ]);
 
         $total = $request->nilai1 + $request->nilai2 + $request->nilai3 + $request->nilai4 +
             $request->nilai5 + $request->nilai6 + $request->nilai7 + $request->nilai8 +
             $request->nilai9 + $request->nilai10 + $request->nilai11 + $request->nilai12 +
-            $request->nilai13 + $request->nilai14 + $request->nilai15 + $request->nilai16 +
-            $request->nilai17;
+            $request->nilai13 + $request->nilai14;
 
         $nilai = NilaiKreatif::updateOrCreate(
             ['cerita_id' => $request->cerita_id],
@@ -80,9 +76,6 @@ class CeritaFantasiController extends Controller
                 'nilai12' => $request->nilai12,
                 'nilai13' => $request->nilai13,
                 'nilai14' => $request->nilai14,
-                'nilai15' => $request->nilai15,
-                'nilai16' => $request->nilai16,
-                'nilai17' => $request->nilai17,
                 'total'  => $total,
             ]
         );

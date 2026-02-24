@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import Img1 from "@/assets/images/1.jpeg";
+import Img1 from "@/assets/images/imge3.jpeg";
 import Img2 from "@/assets/images/2.jpeg";
 import Img3 from "@/assets/images/3.jpeg";
 

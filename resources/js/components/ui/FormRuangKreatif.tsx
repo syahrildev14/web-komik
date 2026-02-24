@@ -1,22 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
+
 import Img1 from "@/assets/images/FormRuangKreatif/01.jpeg";
-import Img2 from "@/assets/images/FormRuangKreatif/02.jpeg";
-import Img3 from "@/assets/images/FormRuangKreatif/03.jpeg";
+import Img2 from "@/assets/images/FormRuangKreatif/02.png";
+import Img3 from "@/assets/images/FormRuangKreatif/03.png";
 import Img4 from "@/assets/images/FormRuangKreatif/04.jpeg";
-import Img5 from "@/assets/images/FormRuangKreatif/05.jpeg";
+import Img5 from "@/assets/images/FormRuangKreatif/05.png";
 import Img6 from "@/assets/images/FormRuangKreatif/06.jpeg";
-import Img7 from "@/assets/images/FormRuangKreatif/07.jpeg";
-import Img8 from "@/assets/images/FormRuangKreatif/08.jpeg";
-import Img9 from "@/assets/images/FormRuangKreatif/09.jpeg";
-import Img10 from "@/assets/images/FormRuangKreatif/10.jpeg";
+import Img7 from "@/assets/images/FormRuangKreatif/07.png";
+import Img8 from "@/assets/images/FormRuangKreatif/08.png";
+import Img9 from "@/assets/images/FormRuangKreatif/09.png";
+import Img10 from "@/assets/images/FormRuangKreatif/10.png";
 import Img11 from "@/assets/images/FormRuangKreatif/11.jpeg";
-import Img12 from "@/assets/images/FormRuangKreatif/12.jpeg";
+import Img12 from "@/assets/images/FormRuangKreatif/12.png";
 import Img13 from "@/assets/images/FormRuangKreatif/13.jpeg";
-import Img14 from "@/assets/images/FormRuangKreatif/14.jpeg";
-import Img15 from "@/assets/images/FormRuangKreatif/15.jpeg";
-import Img16 from "@/assets/images/FormRuangKreatif/16.jpeg";
-import Img17 from "@/assets/images/FormRuangKreatif/17.jpeg";
+import Img14 from "@/assets/images/FormRuangKreatif/14.png";
+
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 
@@ -39,9 +38,6 @@ interface CeritaFantasiFormData {
   cerita12: string;
   cerita13: string;
   cerita14: string;
-  cerita15: string;
-  cerita16: string;
-  cerita17: string;
 }
 
 interface FormCeritaFantasiProps {
@@ -68,9 +64,6 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
     cerita12: "",
     cerita13: "",
     cerita14: "",
-    cerita15: "",
-    cerita16: "",
-    cerita17: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -141,9 +134,6 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
         cerita12: "",
         cerita13: "",
         cerita14: "",
-        cerita15: "",
-        cerita16: "",
-        cerita17: "",
       });
     } catch (error) {
       console.error("❌ Error:", error);
@@ -186,7 +176,7 @@ export default function FormCeritaFantasi({ onSubmit }: FormCeritaFantasiProps) 
       </div>
 
       {/* Gambar + Cerita */}
-      {[Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img12, Img13, Img14, Img15, Img16, Img17,].map((img, index) => (
+      {[Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img12, Img13, Img14].map((img, index) => (
         <div
           key={index}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
